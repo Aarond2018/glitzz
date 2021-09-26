@@ -19,6 +19,7 @@ export default function Header() {
       <div className={styles["header-main"]}>
         <div className={`${styles["container-main"]} container`}>
             <div className={styles["main-part1"]}>
+              <i class="fas fa-bars"></i>
               <div className={styles.logo}><i className="fas fa-store-alt"></i><h3>Glitzz</h3></div>
               <div className={styles.input}><input type="text"></input><i className="fas fa-search"></i></div>
             </div>
