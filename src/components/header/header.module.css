@@ -2,36 +2,271 @@
   border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
-.container {
+.container-top {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.container-top > p {
+  color: #666;
+}
+
+.container-top > ul {
+  list-style: none;
+  display: flex;
+  border-left: 1px solid rgba(0,0,0,.1);
+}
+
+.container-top > ul li {
+  margin: 0 1rem;
+}
+
+.container-top > ul li a {
+  text-decoration: none;
+  color: #666;
+}
+
+.container-top > ul li a:hover {
+  color: #26c;
+}
+
+.container-top > ul li a i {
+  margin: 0 0.3rem;
+}
+
+
+@media (max-width: 640px) {
+  .container-top > ul {
+    display: none;
+  }
+}
+
+
+
+
+/* Header main styles */ 
+
+.container-main {
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.container > p {
-  color: #666;
-}
-
-.container > ul {
-  list-style: none;
+.main-part1 {
   display: flex;
-  border-left: 1px solid rgba(0,0,0,.1);
+  align-items: center;
+  width: 50%;
 }
 
-.container > ul li {
-  margin: 0 1rem;
+.main-part1 > .logo {
+  display: flex;
+  align-items: center;
 }
 
-.container > ul li a {
-  text-decoration: none;
-  color: #666;
+.main-part1 > .logo > i {
+  font-size: 2rem;
+  color: #26c;
+  margin-right: 0.3rem;
 }
 
-.container > ul li a:hover {
+.main-part1 > .logo > h3 {
+  font-size: 2rem;
   color: #26c;
 }
 
-.container > ul li a i {
-  margin: 0 0.3rem;
+.main-part1 > .input {
+  width: 70%;
+  margin-left: 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  border: 2px solid #2266cc;
+  border-radius: 4px;
+  
 }
+
+.main-part1 > .input input {
+  padding: 0.7rem;
+  border: none;
+}
+
+.main-part1 > .input input:focus {
+  outline: none;
+}
+
+.main-part1 > .input i {
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.main-part1 > .input i:hover {
+  color: #2266cc;
+  cursor: pointer;
+}
+
+.main-part2 {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.main-part2 li {
+  margin: 0 0.5rem;
+}
+
+.main-part2 li a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  transition: all .2s;
+}
+
+.main-part2 li a:hover {
+  color: #26c
+}
+
+.main-part2 li a > i {
+  font-size: 1.5rem;
+  margin: 0 1rem;
+}
+
+.main-part2 li a > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-part2 li a > div > span {
+  margin-top: 0.2rem;
+}
+
+.main-part2 .li-heart {
+  border-left: 1px solid rgba(0,0,0,.1);
+  border-right: 1px solid rgba(0,0,0,.1);
+}
+
+.main-part2 .li-shop  i {
+  margin-right: 0;
+}
+
+@media (max-width: 875px) {
+  .main-part2 li a > div {
+    display: none;
+  }
+
+  .main-part1 {
+    width: 70%;
+  }
+
+  .main-part1 > .input {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .main-part1 > .input {
+    display: none;
+  }
+}
+
+
+
+
+/* Header bottom styles */
+
+.header-bottom {
+
+}
+
+.container-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.bottom-part1 {
+  display: flex;
+  list-style: none;
+}
+
+.bottom-part1 > li {
+  margin: 0 0.5rem;
+  position: relative;
+  transition: all .2s;
+}
+
+.bottom-part1 > li:hover {
+  color: #2266cc;
+}
+
+.bottom-part1 > li > a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  transition: all .2s;
+}
+
+.bottom-part1 > li > ul {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  list-style: none;
+  margin: 0rem 0;
+  width: 10rem;
+  padding: 0.5rem 0.3rem;
+  border: 1px solid rgba(0,0,0,.05);
+  transition: all .2s;
+}
+
+.bottom-part1 > li:hover > .hidden-list{
+  display: flex;
+  position: absolute;
+  
+}
+
+.bottom-part1 > li:hover > .hidden-list li a {
+  color: #333 important;
+}
+
+.bottom-part1 > li > .hidden-list li {
+  margin: 0.5rem 0;
+}
+
+.bottom-part1 > li > .hidden-list > li > a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.bottom-part1 > li > .hidden-list > li > a:hover {
+  color: #2266cc;
+}
+
+.bottom-part2 {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  transition: all .2s;
+}
+
+.bottom-part2:hover {
+  color: #2266cc;
+}
+
+.bottom-part2 > i {
+  margin: 0 0.5rem;
+}
+
+
+@media (max-width: 640px) {
+  .header-bottom {
+    display: none;
+  }
+}
+ 
