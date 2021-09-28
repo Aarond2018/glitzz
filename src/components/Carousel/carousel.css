@@ -21,9 +21,9 @@
 }
 
 .carousel-item2 {
-  background: url("../../Assets/banner-2.jpg");
+  background: url("../../Assets/slide3.jpg");
   background-size: cover;
-  background-position: right;
+  background-position: center;
 }
 
 .carousel-item3 {
@@ -37,7 +37,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 2rem;
+  width: 100%;
+  max-width: 1220px;
+  padding: 0 1.5rem;
+  margin: 0 auto
 }
 
 .carousel-item1__content > p {
