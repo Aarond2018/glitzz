@@ -2,9 +2,11 @@ import React from 'react'
 
 import  Header from '../../components/header/Header'
 import Carousel from '../../components/Carousel/Carousel'
+import ProductCard from '../../components/ProductCard/ProductCard'
 
 import styles from './home.module.css'
 import menImage from '../../Assets/men.jpg'
+import DiscountSection from '../../components/DisountSection/DiscountSection'
 
 export default function Home() {
   return (
@@ -63,6 +65,23 @@ export default function Home() {
               <p>Men's Fashion</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section>
+        <DiscountSection />
+      </section>
+
+      <section className={`${styles["featured-container"]} container`}>
+        <h4>Our Featured</h4>
+        <div className={styles.products}>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </div>
+        <div className={styles["moreProducts-btn"]}>
+          <a href="">See More ...</a>
         </div>
       </section>
     </>

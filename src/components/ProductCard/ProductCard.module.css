@@ -1,0 +1,113 @@
+.product {
+  height: 20rem;
+  cursor: pointer;
+}
+
+.product-part1 {
+  height: 65%;
+  position: relative;
+}
+
+.product-part1 > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-part1 > .icons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 5%;
+  right: 5%;
+  opacity: 0;
+  transition: all .5s;
+}
+
+.product-part1 > .icons > .icon {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  margin: 0.3rem 0;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.1);
+  transition: all .3s;
+}
+
+.product-part1 > .icons > .icon > i {
+  font-size: 1rem;
+  color: #888;
+}
+
+.product:hover .icons {
+  opacity: 1;
+}
+
+.product-part1 > .icons > .icon:hover {
+  background: #26c;
+}
+
+.product-part1 > .icons > .icon:hover > i {
+  color: #fff;
+}
+
+.product-part1 > .button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background: #26c;
+  padding: 0.5rem;
+  text-align: center;
+  transition: all .5s;
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+}
+
+.product:hover .product-part1 > .button {
+  opacity: 0.8;
+}
+
+.product-part1 > .button:hover {
+  opacity: 1 !important;
+}
+
+.product-part2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem;
+}
+
+.product-part2 > h6 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+  transition: all .3s;
+}
+
+.product-part2 > h6:hover {
+  color: #26c;
+}
+
+.product-part2 > p {
+  font-weight: 700;
+}
+
+
+
+@media (max-width: 760px) {
+  .product {
+    height: 15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product {
+    height: 12rem;
+  } 
+}
