@@ -4,6 +4,7 @@ import  Header from '../../components/header/Header'
 import Carousel from '../../components/Carousel/Carousel'
 
 import styles from './home.module.css'
+import menImage from '../../Assets/men.jpg'
 
 export default function Home() {
   return (
@@ -31,6 +32,35 @@ export default function Home() {
             <div>
               <h3>Free shipping & Return</h3>
               <p>Free shipping on orders over $99</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={`${styles["category-section"]} container`}>
+        <h4>Our Categories</h4>
+        <div className={styles.categories}>
+          <div className={styles.category}>
+            <img src={menImage} alt=""></img>
+            <div>
+              <p>Men's Fashion</p>
+            </div>
+          </div>
+          <div className={styles.category}>
+            <img src={menImage} alt=""></img>
+            <div>
+              <p>Men's Fashion</p>
+            </div>
+          </div>
+          <div className={styles.category}>
+            <img src={menImage} alt=""></img>
+            <div>
+              <p>Men's Fashion</p>
+            </div>
+          </div>
+          <div className={styles.category}>
+            <img src={menImage} alt=""></img>
+            <div>
+              <p>Men's Fashion</p>
             </div>
           </div>
         </div>
