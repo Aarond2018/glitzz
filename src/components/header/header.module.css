@@ -62,6 +62,31 @@ h3 {
 
 /* Header main styles */ 
 
+.header-main {
+  transition: all .3s;
+  
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.header-main-scroll {
+  position: fixed;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  animation: animate .3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
 .container-main {
   display: flex;
   justify-content: space-between;

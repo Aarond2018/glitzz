@@ -23,7 +23,7 @@
 .carousel-item2 {
   background: url("../../Assets/slide3.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top center;
 }
 
 .carousel-item3 {

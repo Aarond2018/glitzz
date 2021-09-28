@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import styles from './header.module.css'
 
 export default function Header() {
+  const [displayHeader, setDisplayHeader] = useState(false)
+
+  const handleScroll = () => {
+    window.scrollY > 100 ? setDisplayHeader(true) : setDisplayHeader(false)
+  }
+
+  window.addEventListener('scroll', handleScroll)
+ 
   return (
     <header>
       <div className={styles["header-top"]}>
@@ -16,7 +24,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className={styles["header-main"]}>
+      <div className={!displayHeader ? styles["header-main"] : `${styles["header-main"]} ${styles["header-main-scroll"]}`}>
         <div className={`${styles["container-main"]} container`}>
             <div className={styles["main-part1"]}>
               <i class="fas fa-bars"></i>
