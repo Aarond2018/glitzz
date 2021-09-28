@@ -1,0 +1,110 @@
+/* .main-part1 > i {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  display: none;
+}
+
+.main-part1 > .logo {
+  display: flex;
+  align-items: center;
+}
+
+.main-part1 > .logo > i {
+  font-size: 2rem;
+  color: #26c;
+  margin-right: 0.3rem;
+}
+
+.main-part1 > .logo > h3 {
+  font-size: 2rem;
+  color: #26c;
+} */
+
+.footer {
+  background: #333;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+}
+
+.container .logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.container .logo > i {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.container .logo > h3 {
+  font-size: 2rem;
+  
+}
+
+.container > ul {
+  margin: 1rem 0;
+  border: 1px solid rgba(255,255,255,.1);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  list-style: none;
+}
+
+.container > ul > li {
+  margin: 2rem 1.5rem;
+}
+
+.container > ul > li > a {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.container > ul > li > ul {
+  list-style: none;
+}
+
+.container > ul > li > ul > li {
+  margin: 0.5rem 0;
+}
+
+.container > ul > li > ul > li > a {
+  text-decoration: none;
+  color: #ccc;
+
+}
+
+.container > ul > li > ul > li > p {
+  color: #ccc;
+}
+
+.container > ul > li > ul > li > a:hover {
+  color: #26c;
+}
+
+
+.container > ul > li > ul > li > p:hover {
+  color: #26c;
+}
+
+.container > p {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+
+@media (max-width: 480px) {
+  .container > p {
+    margin: 1rem 0;
+    font-size: 0.8rem;
+  }
+}

@@ -7,6 +7,7 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 import styles from './home.module.css'
 import menImage from '../../Assets/men.jpg'
 import DiscountSection from '../../components/DisountSection/DiscountSection'
+import Footer from '../../components/Footer/Footer'
 
 export default function Home() {
   return (
@@ -84,6 +85,8 @@ export default function Home() {
           <a href="">See More ...</a>
         </div>
       </section>
+
+      <Footer />
     </>
   )
 }
