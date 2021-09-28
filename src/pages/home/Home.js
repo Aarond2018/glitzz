@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import  Header from '../../components/header/Header'
 import Carousel from '../../components/Carousel/Carousel'
@@ -10,6 +10,18 @@ import DiscountSection from '../../components/DisountSection/DiscountSection'
 import Footer from '../../components/Footer/Footer'
 
 export default function Home() {
+  const [scrollBar, setScrollBar] = useState(false)
+
+  const handleScroll = () => {
+    window.scrollY > 100 ? setScrollBar(true) : setScrollBar(false)
+  }
+
+  window.addEventListener('scroll', handleScroll)
+
+  const handleScrollToTop = () => {
+    window.scrollTo(0, 0)
+  }
+
   return (
     <>
       <Header />
@@ -87,6 +99,9 @@ export default function Home() {
       </section>
 
       <Footer />
+      <div onClick={handleScrollToTop} className={!scrollBar ? styles.scrollBtn : `${styles.scrollBtn} ${styles.displayBar}`}>
+        <i class="fas fa-arrow-up"></i>
+      </div>
     </>
   )
 }

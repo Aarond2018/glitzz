@@ -162,3 +162,32 @@
     grid-gap: 1rem;
   } 
 }
+
+
+.scrollBtn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3px;
+  background: #fff;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  cursor: pointer;
+  box-shadow: 0 4px 32px rgba(0,0,0,.5);
+  opacity: 0;
+  transition: all .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollBtn > i {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #26c;
+}
+
+.displayBar {
+  opacity: 1;
+  
+}
