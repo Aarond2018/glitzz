@@ -1,11 +1,13 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import styles from './ProductCard.module.css'
 import productImg from  '../../Assets/product.jpg'
 
 export default function ProductCard() {
   return (
-    <div className={styles.product}>
+    <Link to="/product" className={styles.product}>
       <div className={styles["product-part1"]}>
         <img src={productImg} alt=""></img>
         <div className={styles.icons}>
@@ -18,6 +20,6 @@ export default function ProductCard() {
         <h6>Fashion Electric wrist wat...</h6>
         <p>$270.99</p>
       </div>
-  </div>
+  </Link>
   )
 }
