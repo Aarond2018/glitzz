@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/header/Header'
@@ -7,6 +7,16 @@ import styles from './ProductDetails.module.css'
 import image from '../../Assets/product.jpg'
 
 export default function ProductDetails() {
+  const [quantity, setQuantity] = useState(0);
+
+  const handleQuantityPlus = () => {
+    setQuantity(q => q + 1)
+  }
+
+  const handleQuantityMinus = () => {
+    quantity <= 0 ? setQuantity(0) : setQuantity(q => q - 1)
+  }
+
   return (
     <>
       <Header />
@@ -28,9 +38,9 @@ export default function ProductDetails() {
               <p className={styles.desc}>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus liberpuro ate vol faucibus adipiscing.</p>
               <div className={styles.cta}>
                 <div className={styles.quantity}>
-                  <button>-</button>
-                  <div><p>0</p></div>
-                  <button>+</button>
+                  <button onClick={handleQuantityMinus}>-</button>
+                  <div><p>{quantity}</p></div>
+                  <button onClick={handleQuantityPlus}>+</button>
                 </div>
                 <button className={styles["add-cart"]}><i className="fas fa-shopping-bag"></i>Add to Cart</button>
               </div>
