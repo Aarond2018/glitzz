@@ -1,0 +1,92 @@
+.subHeader {
+  color: #888;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  margin: 0.7rem auto;
+}
+
+.subHeader > i {
+  margin-right: 0.5rem;
+}
+
+.display {
+  height: 40vh;
+  background: url("../../Assets/contact-us.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display > h1 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.form {
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 90%;
+  
+}
+
+.form > h4 {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.form > textarea {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.1);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  border-radius: 2px;
+}
+
+.form > textarea:focus {
+  outline: none
+}
+
+.form > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form > div input {
+  width: 48%;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  color: inherit;
+}
+
+.form > div input:focus {
+  outline: none;
+}
+
+.button {
+  padding: 0.5rem 1.5rem;
+  background: #333;
+  color: #fff;
+  border: none;
+  margin: 1.2rem 0;
+  border-radius: 2px;
+}
+
+@media (max-width: 480px) {
+  .form > div {
+    flex-direction: column;
+  }
+
+  .form > div input {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .button {
+    margin: 1rem 0;
+  }
+}

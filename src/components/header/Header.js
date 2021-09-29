@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { Link } from 'react-router-dom'
+
 import styles from './header.module.css'
 
 export default function Header() {
@@ -17,9 +19,9 @@ export default function Header() {
         <div className={`${styles["container-top"]} container`}>
           <p>Welcome to Glitzz store.....</p>
           <ul>
-            <li><a href=""><i className="fas fa-map-marker-alt"></i>Contact</a></li>
-            <li><a href=""><i className="far fa-question-circle"></i>Need help</a></li>
-            <li><a href=""><i className="far fa-user"></i>Sign in</a><a href=""> / Register</a></li>
+            <li><Link to="/contact-us"><i className="fas fa-map-marker-alt"></i>Contact</Link></li>
+            <li><Link><i className="far fa-question-circle"></i>Need help</Link></li>
+            <li><Link><i className="far fa-user"></i>Sign in</Link><Link to=""> / Register</Link></li>
           </ul>
         </div>
       </div>
@@ -27,20 +29,22 @@ export default function Header() {
       <div className={!displayHeader ? styles["header-main"] : `${styles["header-main"]} ${styles["header-main-scroll"]}`}>
         <div className={`${styles["container-main"]} container`}>
             <div className={styles["main-part1"]}>
-              <i class="fas fa-bars"></i>
-              <div className={styles.logo}><i className="fas fa-store-alt"></i><h3>Glitzz</h3></div>
+              <i className="fas fa-bars"></i>
+              <Link to="/">
+                <div className={styles.logo}><i className="fas fa-store-alt"></i><h3>Glitzz</h3></div>
+              </Link>
               <div className={styles.input}><input type="text"></input><i className="fas fa-search"></i></div>
             </div>
             <ul className={styles["main-part2"]}>
               <li>
-                <a href=""><i className="fas fa-phone"></i><div><p>Call us now: </p><span>0(800) 123-456</span></div></a>
+                <Link to=""><i className="fas fa-phone"></i><div><p>Call us now: </p><span>0(800) 123-456</span></div></Link>
               </li>
               <li className={styles["li-heart"]}>
-                <a href=""><i className="far fa-heart"></i></a>
+                <Link to=""><i className="far fa-heart"></i></Link>
               </li>
               <li className={styles["li-shop"]}>
-                {/* <a href="">Shopping Cart: <span>$0.00</span><i className="fas fa-shopping-bag"><div></div></i></a> */}
-                <a href=""><div><p>Call us now: </p><span>0(800) 123-456</span></div><i className="fas fa-shopping-bag"><div></div></i></a>
+                {/* <Link to="">Shopping Cart: <span>$0.00</span><i className="fas fa-shopping-bag"><div></div></i></Link> */}
+                <Link to=""><div><p>Call us now: </p><span>0(800) 123-456</span></div><i className="fas fa-shopping-bag"><div></div></i></Link>
               </li>
             </ul>
         </div>
@@ -49,18 +53,18 @@ export default function Header() {
       <div className={styles["header-bottom"]}>
         <div className={`${styles["container-bottom"]} container`}>
           <ul className={styles["bottom-part1"]}>
-            <li><a href="">Home</a></li>
-            <li><a href="">Categories</a>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="">Categories</Link>
               <ul className={styles["hidden-list"]}>
-                <li><a href="">Clothings</a></li>  
-                <li><a href="">Clothings</a></li>  
-                <li><a href="">Clothings</a></li>  
+                <li><Link to="">Clothings</Link></li>  
+                <li><Link to="">Clothings</Link></li>  
+                <li><Link to="">Clothings</Link></li>  
               </ul>  
             </li>
-            <li><a href="">Contact Us </a></li>
-            <li><a href="">About Us</a></li>
+            <li><Link to="/contact-us">Contact Us </Link></li>
+            <li><Link to="">About Us</Link></li>
           </ul>
-          <a href="" className={styles["bottom-part2"]}><i className="fas fa-tags"></i>Special Offers</a>
+          <Link to="" className={styles["bottom-part2"]}><i className="fas fa-tags"></i>Special Offers</Link>
         </div>
       </div>
     </header>
