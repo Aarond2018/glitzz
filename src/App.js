@@ -6,6 +6,8 @@ import './App.css';
 import Home from './pages/home/Home'
 import ContactPage from './pages/Contact/ContactPage';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
+import SignUp from './pages/SignUp/SignUp';
+import SignIn from './pages/SignIn/SignIn';
 
 function App() {
   return (
@@ -18,6 +20,12 @@ function App() {
       </Route>
       <Route exact path='/product'>
         <ProductDetails />
+      </Route>
+      <Route exact path='/signin'>
+        <SignIn />
+      </Route>
+      <Route exact path='/signup'>
+        <SignUp />
       </Route>
     </Switch>
   );

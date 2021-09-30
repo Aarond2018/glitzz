@@ -7,14 +7,14 @@ import styles from './ProductDetails.module.css'
 import image from '../../Assets/product.jpg'
 
 export default function ProductDetails() {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const handleQuantityPlus = () => {
     setQuantity(q => q + 1)
   }
 
   const handleQuantityMinus = () => {
-    quantity <= 0 ? setQuantity(0) : setQuantity(q => q - 1)
+    quantity <= 1 ? setQuantity(1) : setQuantity(q => q - 1)
   }
 
   return (

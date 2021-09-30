@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  min-height: 50vh;
+  margin: 2rem auto;
+}
+
+.main > .imageBg {
+  width: 50%;
+  background: url("../../Assets/slide4.jpg");
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.main > .content {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content > h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 4px solid #26c;
+  padding-bottom: 0.5rem;
+}
+
+.content > button {
+  padding: 0.5rem 2rem;
+  border: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+  margin-top: 3rem;
+}
+
+.content > p {
+  margin: 1rem 0;
+}
+
+
+@media (max-width: 560px) {
+  .main > .imageBg {
+    display: none;
+  }
+
+  .main > .content {
+    width: 100%;
+  }
+}

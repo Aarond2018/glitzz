@@ -21,7 +21,7 @@ export default function Header() {
           <ul>
             <li><Link to="/contact-us"><i className="fas fa-map-marker-alt"></i>Contact</Link></li>
             <li><Link><i className="far fa-question-circle"></i>Need help</Link></li>
-            <li><Link><i className="far fa-user"></i>Sign in</Link><Link to=""> / Register</Link></li>
+            <li><Link to="/signin"><i className="far fa-user"></i>Sign in</Link><Link to="/signup"> / Register</Link></li>
           </ul>
         </div>
       </div>

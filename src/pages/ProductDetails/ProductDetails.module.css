@@ -124,8 +124,8 @@
   }
 
   .product-img-wrapper {
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 12rem;
     margin: 1rem auto;
   }
 
@@ -169,9 +169,10 @@
 .review-form > .form-group textarea {
   padding: 0.5rem 1rem;
   color: inherit;
-  background: rgba(36, 125, 193,.08);
+  /* background: rgba(36, 125, 193,.08); */
   border: none;
   font-family: inherit;
+  border: 1px solid rgba(0,0,0,.1);
 }
 
 .review-form > .form-group select:focus,
