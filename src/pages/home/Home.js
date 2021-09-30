@@ -9,8 +9,11 @@ import menImage from '../../Assets/men.jpg'
 import DiscountSection from '../../components/DisountSection/DiscountSection'
 import Footer from '../../components/Footer/Footer'
 
-export default function Home() {
+export default function Home(props) {
   const [scrollBar, setScrollBar] = useState(false)
+
+  const products = props.products.slice(0, 8)
+  
 
   const handleScroll = () => {
     window.scrollY > 100 ? setScrollBar(true) : setScrollBar(false)
@@ -88,10 +91,9 @@ export default function Home() {
       <section className={`${styles["featured-container"]} container`}>
         <h4>Our Featured</h4>
         <div className={styles.products}>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products.map(product => {
+            return <ProductCard product={product} />
+          })}
         </div>
         <div className={styles["moreProducts-btn"]}>
           <a href="">See More ...</a>

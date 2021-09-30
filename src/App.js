@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {Switch, Route} from 'react-router-dom'
+import { db } from './Firebase/firebase'
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 import './App.css';
 import Home from './pages/home/Home'
@@ -10,10 +12,56 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 
 function App() {
+  const [products, setProducts] = useState([])
+
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
+  const getProducts = async () => {
+    const arr = [];
+
+    const querySnapshot = await getDocs(collection(db, "products"));
+    querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    /* console.log(doc.id, " => ", doc.data()); */
+    
+    arr.push({
+      id: doc.id,
+      ...doc.data()
+    })
+    
+    });
+    setProducts(arr)
+  }
+
+  const add = async (data) => {
+     await data.map(d => {
+      try {
+        const docRef = addDoc(collection(db, "products"), {
+          title: d.title,
+          price: d.price,
+          description: d.description,
+          category: d.category,
+          image: d.image,
+          rating: d.rating.rate,
+          reviews: []
+        });
+        console.log("Document written with ID: ", docRef.id);
+      
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+     })
+  }
+
+  
+console.log(products)
   return (
     <Switch>
       <Route exact path='/'>
-        <Home />
+        <Home products={products} />
       </Route>
       <Route exact path='/contact-us'>
         <ContactPage />
