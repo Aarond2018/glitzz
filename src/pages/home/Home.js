@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 
+import { Link } from 'react-router-dom'
+
 import  Header from '../../components/header/Header'
 import Carousel from '../../components/Carousel/Carousel'
 import ProductCard from '../../components/ProductCard/ProductCard'
@@ -100,7 +102,7 @@ export default function Home(props) {
           })}
         </div>
         <div className={styles["moreProducts-btn"]}>
-          <a href="">See More ...</a>
+          <Link to="/products">See More ...</Link>
         </div>
       </section>
 

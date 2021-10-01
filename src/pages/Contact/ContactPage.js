@@ -10,7 +10,7 @@ export default function ContactPage() {
     <>
       <Header />
       <div className={`${styles.subHeader} container`}>
-        <i class="fas fa-home"></i> 
+        <i className="fas fa-home"></i> 
         <p> {'>'} Contact Us</p>
       </div>
       <section className={styles.display}>

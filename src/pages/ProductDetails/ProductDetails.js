@@ -29,8 +29,7 @@ export default function ProductDetails() {
 
       <section className={`${styles.container} container`}>
         <div className={`${styles.subHeader}`}>
-          <i class="fas fa-home"></i> 
-          <p> {'>'} Contact Us</p>
+          <i class="fas fa-home"></i>
           <p>  {'>'} Details</p>
         </div>
         <div className={styles["product-main"]}>

@@ -13,6 +13,7 @@ import ContactPage from './pages/Contact/ContactPage';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
+import Products from './pages/Products/Products';
 
 function App() {
   const dispatch = useDispatch()
@@ -66,6 +67,9 @@ function App() {
       </Route>
       <Route exact path='/contact-us'>
         <ContactPage />
+      </Route>
+      <Route exact path='/products'>
+        <Products />
       </Route>
       <Route exact path='/product/:pId'>
         <ProductDetails />
