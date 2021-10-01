@@ -6,8 +6,9 @@ import styles from './ProductCard.module.css'
 import productImg from  '../../Assets/product.jpg'
 
 export default function ProductCard(props) {
+  
   return (
-    <Link to="/product" className={styles.product}>
+    <Link to={`/product/${props.product.id}`} className={styles.product}>
       <div className={styles["product-part1"]}>
         <img src={props.product.image} alt=""></img>
         <div className={styles.icons}>

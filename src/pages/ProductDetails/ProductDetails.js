@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 
+import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/header/Header'
 
@@ -8,6 +11,9 @@ import image from '../../Assets/product.jpg'
 
 export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
+
+  const params = useParams()
+  const product = useSelector(state => state.products.data.find(p => p.id === params.pId))
 
   const handleQuantityPlus = () => {
     setQuantity(q => q + 1)
@@ -29,13 +35,13 @@ export default function ProductDetails() {
         </div>
         <div className={styles["product-main"]}>
           <div className={styles["product-img-wrapper"]}>
-            <img src={image} alt=""></img>
+            <img src={product?.image} alt=""></img>
           </div>
           <div className={styles["product-overview"]}>
             <div>
-              <h5>Converse Training Shoes</h5>
-              <p className={styles.price}>$113.00</p>
-              <p className={styles.desc}>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus liberpuro ate vol faucibus adipiscing.</p>
+              <h5>{product?.title}</h5>
+              <p className={styles.price}>${product?.price}</p>
+              <p className={styles.desc}>{product?.description}</p>
               <div className={styles.cta}>
                 <div className={styles.quantity}>
                   <button onClick={handleQuantityMinus}>-</button>

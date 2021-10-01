@@ -67,7 +67,7 @@ function App() {
       <Route exact path='/contact-us'>
         <ContactPage />
       </Route>
-      <Route exact path='/product'>
+      <Route exact path='/product/:pId'>
         <ProductDetails />
       </Route>
       <Route exact path='/signin'>
