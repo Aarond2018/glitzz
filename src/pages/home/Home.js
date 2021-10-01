@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import { useSelector } from 'react-redux'
+
 import  Header from '../../components/header/Header'
 import Carousel from '../../components/Carousel/Carousel'
 import ProductCard from '../../components/ProductCard/ProductCard'
@@ -12,7 +14,9 @@ import Footer from '../../components/Footer/Footer'
 export default function Home(props) {
   const [scrollBar, setScrollBar] = useState(false)
 
-  const products = props.products.slice(0, 8)
+  const reduxProducts = useSelector(state => state.products.data)
+
+  const products = reduxProducts.slice(0, 8)
   
 
   const handleScroll = () => {
@@ -92,7 +96,7 @@ export default function Home(props) {
         <h4>Our Featured</h4>
         <div className={styles.products}>
           {products.map(product => {
-            return <ProductCard product={product} />
+            return <ProductCard key={product.id} product={product} />
           })}
         </div>
         <div className={styles["moreProducts-btn"]}>

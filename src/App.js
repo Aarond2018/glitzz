@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
+import { useDispatch } from 'react-redux';
+import { productActions } from './store/productSlice'
+
 import {Switch, Route} from 'react-router-dom'
 import { db } from './Firebase/firebase'
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc } from "firebase/firestore";
 
 import './App.css';
 import Home from './pages/home/Home'
@@ -12,8 +15,8 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 
 function App() {
-  const [products, setProducts] = useState([])
-  
+  const dispatch = useDispatch()
+
   useEffect(() => {
     getProducts()
   }, [])
@@ -32,10 +35,11 @@ function App() {
     })
     
     });
-    setProducts(arr)
+    
+    dispatch(productActions.add(arr))
   }
 
-  const add = async (data) => {
+ /*  const add = async (data) => {
      await data.map(d => {
       try {
         const docRef = addDoc(collection(db, "products"), {
@@ -53,14 +57,12 @@ function App() {
         console.error("Error adding document: ", e);
       }
      })
-  }
+  } */
 
-  
-console.log(products)
   return (
     <Switch>
       <Route exact path='/'>
-        <Home products={products} />
+        <Home /> 
       </Route>
       <Route exact path='/contact-us'>
         <ContactPage />
