@@ -13,8 +13,7 @@ import SignIn from './pages/SignIn/SignIn';
 
 function App() {
   const [products, setProducts] = useState([])
-
-
+  
   useEffect(() => {
     getProducts()
   }, [])
