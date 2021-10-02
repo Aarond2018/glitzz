@@ -37,14 +37,14 @@ export default function Header() {
             </div>
             <ul className={styles["main-part2"]}>
               <li>
-                <Link to=""><i className="fas fa-phone"></i><div><p>Call us now: </p><span>0(800) 123-456</span></div></Link>
+                <Link to="/"><i className="fas fa-phone"></i><div><p>Call us now: </p><span>0(800) 123-456</span></div></Link>
               </li>
               <li className={styles["li-heart"]}>
-                <Link to=""><i className="far fa-heart"></i></Link>
+                <Link to="/"><i className="far fa-heart"></i></Link>
               </li>
               <li className={styles["li-shop"]}>
                 {/* <Link to="">Shopping Cart: <span>$0.00</span><i className="fas fa-shopping-bag"><div></div></i></Link> */}
-                <Link to=""><div><p>Call us now: </p><span>0(800) 123-456</span></div><i className="fas fa-shopping-bag"><div></div></i></Link>
+                <Link to="/cart"><div><p>Shopping Cart </p><span>$0.00</span></div><i className="fas fa-shopping-bag"><div></div></i></Link>
               </li>
             </ul>
         </div>

@@ -14,6 +14,7 @@ import ProductDetails from './pages/ProductDetails/ProductDetails';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import Products from './pages/Products/Products';
+import Cart from './pages/Cart/Home/Cart'
 
 function App() {
   const dispatch = useDispatch()
@@ -79,6 +80,9 @@ function App() {
       </Route>
       <Route exact path='/signup'>
         <SignUp />
+      </Route>
+      <Route path='/cart'>
+        <Cart />
       </Route>
     </Switch>
   );
