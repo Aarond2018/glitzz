@@ -22,11 +22,19 @@ export default function Carousel() {
           </div>
         </div>
         <div className="carousel-item carousel-item2">
-       
-          
+          <div className="carousel-item1__content">
+            <h1>Enticing<br /><span>Discounts</span></h1>
+            <p>Up to 50% off all order this Season</p>
+            <a href="">Shop now</a>
+          </div>
+            
         </div>
         <div className="carousel-item carousel-item3">
-          
+          <div className="carousel-item1__content">
+            <h1>Mega Super<br /><span>Flash Sales</span></h1>
+            <p>Deals you don't want to miss..</p>
+            <a href="">Shop now</a>
+          </div>
           
         </div>
       </div>

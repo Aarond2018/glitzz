@@ -1,20 +1,31 @@
 import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
+import MobileNav from '../mobileNav/MobileNav'
 
 import styles from './header.module.css'
 
 export default function Header() {
   const [displayHeader, setDisplayHeader] = useState(false)
+  const [displayMobileNav, setDisplayMobileNav] = useState(false)
 
   const handleScroll = () => {
     window.scrollY > 100 ? setDisplayHeader(true) : setDisplayHeader(false)
   }
 
   window.addEventListener('scroll', handleScroll)
+
+  const openMobileNav = () => {
+    setDisplayMobileNav(true)
+  }
+
+  const closeMobileNav = () => {
+    setDisplayMobileNav(false)
+  }
  
   return (
     <header>
+      <MobileNav displayMobileNav={displayMobileNav} closeNav={closeMobileNav}/>
       <div className={styles["header-top"]}>
         <div className={`${styles["container-top"]} container`}>
           <p>Welcome to Glitzz store.....</p>
@@ -29,7 +40,7 @@ export default function Header() {
       <div className={!displayHeader ? styles["header-main"] : `${styles["header-main"]} ${styles["header-main-scroll"]}`}>
         <div className={`${styles["container-main"]} container`}>
             <div className={styles["main-part1"]}>
-              <i className="fas fa-bars"></i>
+              <i className="fas fa-bars" onClick={openMobileNav}></i>
               <Link to="/">
                 <div className={styles.logo}><i className="fas fa-store-alt"></i><h3>Glitzz</h3></div>
               </Link>

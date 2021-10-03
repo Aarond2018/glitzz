@@ -63,6 +63,7 @@
   font-size: 3rem;
   color: #fff;
   margin: 1rem 0;
+  font-weight: 600;
 }
 
 .carousel-item1__content > a {
@@ -73,6 +74,45 @@
   padding: 0.5rem 1rem;
   width: 8rem;
   border-radius: 4px;
+  font-weight: 600;
+  background: #fff;
+  color: #26c
+}
+
+.carousel-item2 > .carousel-item1__content > p{
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+  
+}
+
+.carousel-item2 > .carousel-item1__content > a {
+  background: #fff;
+  color: #26c;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.carousel-item3 > .carousel-item1__content > h1 {
+  color: #26c;
+  font-weight: 600;
+}
+
+.carousel-item3 > .carousel-item1__content > p{
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.carousel-item3 > .carousel-item1__content > a {
+  background: #fff;
+  color: #26c;
+  font-weight: 600;
+  margin-top: 1rem;
+  border: 1px solid #26c;
+  background: transparent;
 }
 
 
