@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { userActions } from '../../store/userSlice'
 
 import { Link } from 'react-router-dom'
 import MobileNav from '../mobileNav/MobileNav'
@@ -12,6 +13,7 @@ export default function Header() {
   const [displayMobileNav, setDisplayMobileNav] = useState(false)
 
   const isSignnedIn = useSelector(state => state.users.isSignnedIn)
+  const dispatch = useDispatch()
   
   const handleScroll = () => {
     window.scrollY > 100 ? setDisplayHeader(true) : setDisplayHeader(false)
@@ -27,6 +29,10 @@ export default function Header() {
     setDisplayMobileNav(false)
   }
  
+  const handleSignOut = () => {
+    dispatch(userActions.signOut())
+  }
+
   return (
     <header>
       <MobileNav displayMobileNav={displayMobileNav} closeNav={closeMobileNav}/>
@@ -37,7 +43,7 @@ export default function Header() {
             <li><Link to="/contact-us"><i className="fas fa-map-marker-alt"></i>Contact</Link></li>
             <li><Link><i className="far fa-question-circle"></i>Need help</Link></li>
             {isSignnedIn ? 
-              <li><Link to=""><i class="fas fa-sign-out-alt"></i>Sign Out</Link></li> : 
+              <li onClick={handleSignOut}><Link to="/"><i class="fas fa-sign-out-alt"></i>Sign Out</Link></li> : 
               <li><Link to="/signin"><i className="far fa-user"></i>Sign in</Link><Link to="/signup"> / Register</Link></li>
             }
           </ul>
