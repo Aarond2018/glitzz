@@ -1,8 +1,12 @@
 import React from 'react'
 
+import { useSelector } from 'react-redux'
+
 import styles from './footer.module.css'
 
 export default function Footer() {
+  const isSignnedIn = useSelector(state => state.users.isSignnedIn)
+
   return (
     <div className={styles.footer}>
       <div className={`${styles.container} container`}>
@@ -17,7 +21,7 @@ export default function Footer() {
           </li>
           <li><a>My Account</a>
             <ul>
-              <li><a href="">Sign In</a></li>
+              {isSignnedIn ? <li><a href="">Sign Out</a></li> : <li><a href="">Sign In</a></li>}
               <li><a href="">View Cart</a></li>
               <li><a href="">My Wishlist</a></li>
             </ul>
