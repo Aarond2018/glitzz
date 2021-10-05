@@ -4,7 +4,7 @@ const initialState = {
   uID: '',
   name: '',
   email: '',
-  cart: '',
+  cart: [],
   record: '',
   isSignnedIn: false
 }
@@ -26,6 +26,12 @@ const userSlice = createSlice({
     },
     signOut: (state) => {
       state.isSignnedIn = false
+    },
+    addToCart: (state, action) => {
+      if (state.cart.some(obj=>obj.id === action.payload.id)){
+        return
+      }else{
+        state.cart.push(action.payload)}
     }
   }
 })

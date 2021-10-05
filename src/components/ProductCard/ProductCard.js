@@ -1,11 +1,20 @@
 import React from 'react'
 
+import { useDispatch } from 'react-redux'
+import { userActions } from '../../store/userSlice'
+
 import { Link } from 'react-router-dom'
 
-import styles from './ProductCard.module.css'
-import productImg from  '../../Assets/product.jpg'
+import styles from './ProductCard.module.css' 
 
 export default function ProductCard(props) {
+  const dispatch = useDispatch()
+
+  const handleAddToCart = (e) => {
+    e.preventDefault()
+    dispatch(userActions.addToCart(props.product))
+
+  }
   
   return (
     <Link to={`/product/${props.product.id}`} className={styles.product}>
@@ -13,7 +22,7 @@ export default function ProductCard(props) {
         <img src={props.product.image} alt=""></img>
         <div className={styles.icons}>
           <div className={styles.icon}><i className="far fa-heart"></i></div>
-          <div className={styles.icon}><i className="fas fa-shopping-bag"></i></div>
+          <div className={styles.icon} onClick={handleAddToCart}><i className="fas fa-shopping-bag"></i></div>
         </div>
         <div className={styles.button}><p>View Product</p></div>
       </div>
