@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { useDispatch } from 'react-redux';
 import { productActions } from './store/productSlice'
+import { userActions } from './store/userSlice'
 
 import {Switch, Route} from 'react-router-dom'
 import { db } from './Firebase/firebase'
@@ -18,6 +19,17 @@ import Cart from './pages/Cart/Home/Cart'
 
 function App() {
   const dispatch = useDispatch()
+
+  //persist the redux data through the saved Cookie
+  if (document.cookie.includes("userData")) {
+    const d = document.cookie.split('; ').find(row => row.startsWith('userData=')).split('=')[1];
+
+    if (!JSON.parse(d).email == "") {
+      dispatch(userActions.signIn(JSON.parse(d)))
+    }
+  }
+
+    
 
   useEffect(() => {
     getProducts()

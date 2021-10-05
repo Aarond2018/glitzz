@@ -3,7 +3,7 @@ import React from 'react'
 import { userActions } from '../../store/userSlice'
 
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, Redirect, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import app from '../../Firebase/firebase'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { db } from '../../Firebase/firebase'
@@ -26,16 +26,19 @@ export default function SignIn() {
       // doc.data() is never undefined for query doc snapshots
       /* console.log(doc.id, " => ", doc.data()); */
       
-      users.push(doc.data())
+      users.push(doc.data()) 
     
     });
     const userData = (users.find(p=>p.email === user.email))
+    document.cookie = `userData=${JSON.stringify(userData)}`
+    /* const d = document.cookie.split('; ').find(row => row.startsWith('userData='))
+    .split('=')[1]; */
+    
     dispatch(userActions.signIn(userData)) 
     history.push("/")
     }
     add()
     
-
   }
 
 

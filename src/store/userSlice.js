@@ -14,6 +14,9 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     signIn: (state, action) => {
+      /* const data = document.cookie.split('; ').find(row => row.startsWith('userData=')).split('=')[1];
+      const parsedData = JSON.parse(data) */
+      
       state.isSignnedIn = true
       state.uID = action.payload.uID
       state.name = action.payload.name
