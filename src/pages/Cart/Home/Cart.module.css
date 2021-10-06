@@ -94,7 +94,7 @@
 .delete {
   width: 1.5rem;
   height: 1.5rem;
-  border: 1px solid rgba(224, 80, 80, 0.98);
+  /* border: 1px solid rgba(224, 80, 80, 0.98); */
   border-radius: 50%;
   display: flex;
   justify-content: center;

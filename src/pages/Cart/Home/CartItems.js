@@ -42,7 +42,7 @@ export default function CartItems() {
                   <button>+</button>
                 </div>
                 <div className={styles.delete} onClick={() => handleDelete(item.id)}>
-                  <p>x</p>
+                  <i class="far fa-trash-alt"></i>
                 </div>
               </div>
           )

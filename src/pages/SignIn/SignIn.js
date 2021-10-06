@@ -17,7 +17,7 @@ import styles from './SignIn.module.css'
 export default function SignIn() {
   const history = useHistory()
   const dispatch = useDispatch()
-
+  
   const firebaseSync = (user) => {
     const add = async () => {
       const users = []
