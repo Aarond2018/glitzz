@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import { userActions } from '../../../store/userSlice'
 
 import styles from './Cart.module.css'
-import image from '../../../Assets/product.jpg'
 
 export default function CartItems() {
   const dispatch = useDispatch()

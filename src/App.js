@@ -20,11 +20,12 @@ import Cart from './pages/Cart/Home/Cart'
 function App() {
   const dispatch = useDispatch()
 
+  
   //persist the redux data through the saved Cookie
   if (document.cookie.includes("userData")) {
     const d = document.cookie.split('; ').find(row => row.startsWith('userData=')).split('=')[1];
 
-    if (!JSON.parse(d).email == "") {
+    if (!JSON.parse(d).email === "") {
       dispatch(userActions.signIn(JSON.parse(d)))
     }
   }
@@ -33,6 +34,8 @@ function App() {
 
   useEffect(() => {
     getProducts()
+    const cart = JSON.parse(localStorage.getItem('cart'))
+    dispatch(userActions.reformatCart(cart))
   }, [])
 
   const getProducts = async () => {

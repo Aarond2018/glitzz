@@ -31,10 +31,15 @@ const userSlice = createSlice({
       if (state.cart.some(obj=>obj.id === action.payload.id)){
         return
       }else{
-        state.cart.push(action.payload)}
+        state.cart.push(action.payload)
+        localStorage.setItem("cart", JSON.stringify(state.cart))
+      }
     },
     removeFromCart: (state, action) => {
       state.cart = state.cart.filter(item => item.id !== action.payload)
+    },
+    reformatCart: (state, action) => {
+      state.cart = action.payload
     }
   }
 })

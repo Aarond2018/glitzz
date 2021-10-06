@@ -20,6 +20,7 @@ export default function SignIn() {
   
   const firebaseSync = (user) => {
     const add = async () => {
+      //get the list of all users into an array and check if a user already exist
       const users = []
       const querySnapshot = await getDocs(collection(db, "users"));
       querySnapshot.forEach((doc) => {
