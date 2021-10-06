@@ -13,6 +13,8 @@ export default function Header() {
   const [displayMobileNav, setDisplayMobileNav] = useState(false)
 
   const isSignnedIn = useSelector(state => state.users.isSignnedIn)
+  const cartItemNo = useSelector(state => state.users.cart.length)
+  
   const dispatch = useDispatch()
   
   const handleScroll = () => {
@@ -68,7 +70,7 @@ export default function Header() {
               </li>
               <li className={styles["li-shop"]}>
                 {/* <Link to="">Shopping Cart: <span>$0.00</span><i className="fas fa-shopping-bag"><div></div></i></Link> */}
-                <Link to="/cart"><div><p>Shopping Cart </p><span>$0.00</span></div><i className="fas fa-shopping-bag"><div></div></i></Link>
+                <Link to="/cart"><div><p>Shopping Cart </p><span>$0.00</span></div><i className="fas fa-shopping-bag"><p>{cartItemNo}</p></i></Link>
               </li>
             </ul>
         </div>
