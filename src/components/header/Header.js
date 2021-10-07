@@ -13,7 +13,7 @@ export default function Header() {
   const [displayMobileNav, setDisplayMobileNav] = useState(false)
 
   const isSignnedIn = useSelector(state => state.users.isSignnedIn)
-  const cartItemNo = useSelector(state => state.users.cart.length)
+  const cartItemNo = useSelector(state => state.users.cart?.length)
   
   const dispatch = useDispatch()
   
