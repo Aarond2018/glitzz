@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 
 import { useDispatch } from 'react-redux';
 import { productActions } from './store/productSlice'
@@ -9,17 +9,26 @@ import { db } from './Firebase/firebase'
 import { collection, addDoc, getDocs, doc } from "firebase/firestore";
 
 import './App.css';
-import Home from './pages/home/Home'
+/* import Home from './pages/home/Home'
 import ContactPage from './pages/Contact/ContactPage';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import Products from './pages/Products/Products';
-import Cart from './pages/Cart/Home/Cart'
+import Cart from './pages/Cart/Home/Cart' */
+import Loader from './components/Loader/Loader'
+
+const Home = React.lazy(() => import('./pages/home/Home'))
+const ContactPage = React.lazy(()=>import('./pages/Contact/ContactPage'))
+const ProductDetails = React.lazy(()=>import('./pages/ProductDetails/ProductDetails'))
+const SignIn = React.lazy(()=>import('./pages/SignIn/SignIn'))
+const SignUp = React.lazy(()=>import('./pages/SignUp/SignUp'))
+const Products = React.lazy(()=>import('./pages/Products/Products'))
+const Cart = React.lazy(()=>import('./pages/Cart/Home/Cart'))
+
 
 function App() {
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch(); 
   
   //persist the redux data through the saved Cookie
   if (document.cookie.includes("userData")) {
@@ -77,29 +86,43 @@ function App() {
   } */
 
   return (
-    <Switch>
-      <Route exact path='/'>
-        <Home /> 
-      </Route>
-      <Route exact path='/contact-us'>
-        <ContactPage />
-      </Route>
-      <Route exact path='/products'>
-        <Products />
-      </Route>
-      <Route exact path='/product/:pId'>
-        <ProductDetails />
-      </Route>
-      <Route exact path='/signin'>
-        <SignIn />
-      </Route>
-      <Route exact path='/signup'>
-        <SignUp />
-      </Route>
-      <Route path='/cart'>
-        <Cart />
-      </Route>
-    </Switch>
+      <Switch>
+        <Route exact path='/'>
+          <Suspense fallback={<Loader />}>
+            <Home /> 
+          </Suspense>
+        </Route>
+        <Route exact path='/contact-us'>
+          <Suspense fallback={<Loader />}>
+            <ContactPage />
+          </Suspense>
+        </Route>
+        <Route exact path='/products'>
+          <Suspense fallback={<Loader />}>
+            <Products />
+          </Suspense>
+        </Route>
+        <Route exact path='/product/:pId'>
+          <Suspense fallback={<Loader />}>
+            <ProductDetails />
+          </Suspense>
+        </Route>
+        <Route exact path='/signin'>
+          <Suspense fallback={<Loader />}>
+            <SignIn />
+          </Suspense>
+        </Route>
+        <Route exact path='/signup'>
+          <Suspense fallback={<Loader />}>
+            <SignUp />
+          </Suspense>
+        </Route>
+        <Route path='/cart'>
+          <Suspense fallback={<Loader />}>
+            <Cart />
+          </Suspense>
+        </Route>
+      </Switch>
   );
 }
 
