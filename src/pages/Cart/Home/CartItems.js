@@ -14,8 +14,12 @@ export default function CartItems() {
   let totalPrice;
   
   //Get the total price of items in the cart
-  cart?.length !== 0 ? totalPrice = cart.map(p => p.price).reduce((a, b) => a + b) : totalPrice = 0;
-  
+  if (cart) {
+    cart.length !== 0 ? totalPrice = cart.map(p => p.price).reduce((a, b) => a + b) : totalPrice = 0;
+  }
+  else {
+    return
+  }
   const handleDelete = (id) => {
     dispatch(userActions.removeFromCart(id))
   }
