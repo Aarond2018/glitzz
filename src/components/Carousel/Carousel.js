@@ -16,7 +16,7 @@ export default function Carousel() {
       <div className="carousel-inner carousel-display">
         <div className="carousel-item carousel-item1 active">
           <div className="carousel-item1__content">
-            <p>Buy 2 Get <span><i class="far fa-star"></i>1 free<i class="far fa-star"></i></span></p>
+            <p>Buy 2 Get <span><i className="far fa-star"></i>1 free<i className="far fa-star"></i></span></p>
             <h1>Fashionable<br /><span>Collection</span></h1>
             <a href="">Shop now</a>
           </div>

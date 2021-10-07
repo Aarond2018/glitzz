@@ -38,21 +38,21 @@ export default function Home(props) {
       <section className={`${styles.container} container`}>
         <div className={styles.features}>
           <div className={styles.feature}>
-            <i class="fas fa-headset"></i>
+            <i className="fas fa-headset"></i>
             <div>
               <h3>Customer Support 24/7</h3>
               <p>Instant access to perfect support</p>
             </div>
           </div>
           <div className={styles.feature}>
-            <i class="fas fa-shield-alt"></i>
+            <i className="fas fa-shield-alt"></i>
             <div>
               <h3>100% Secure payment</h3>
               <p>We ensure secure payment</p>
             </div>
           </div>
           <div className={styles.feature}>
-            <i class="fas fa-shipping-fast"></i>
+            <i className="fas fa-shipping-fast"></i>
             <div>
               <h3>Free shipping & Return</h3>
               <p>Free shipping on orders over $99</p>
@@ -108,7 +108,7 @@ export default function Home(props) {
 
       <Footer />
       <div onClick={handleScrollToTop} className={!scrollBar ? styles.scrollBtn : `${styles.scrollBtn} ${styles.displayBar}`}>
-        <i class="fas fa-arrow-up"></i>
+        <i className="fas fa-arrow-up"></i>
       </div>
     </>
   )

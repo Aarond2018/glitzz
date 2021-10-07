@@ -90,6 +90,10 @@
   border: 1px solid rgba(0,0,0,.1);
 }
 
+.add-cart:disabled > i {
+  color: #ccc;
+}
+
 .add-cart > i {
   font-size: 1.5rem;
   margin-right: 0.5rem;

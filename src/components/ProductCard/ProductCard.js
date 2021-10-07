@@ -12,7 +12,7 @@ export default function ProductCard(props) {
 
   const handleAddToCart = (e) => {
     e.preventDefault()
-    dispatch(userActions.addToCart(props.product))
+    dispatch(userActions.addToCart({...props.product, quantity: 1}))
 
   }
   

@@ -15,7 +15,7 @@ export default function CartItems() {
   
   //Get the total price of items in the cart
   if (cart) {
-    cart.length !== 0 ? totalPrice = cart.map(p => p.price).reduce((a, b) => a + b) : totalPrice = 0;
+    cart.length !== 0 ? totalPrice = cart.map(p => p.price * p.quantity).reduce((a, b) => a + b) : totalPrice = 0;
   }
   else {
     return
@@ -23,6 +23,9 @@ export default function CartItems() {
   const handleDelete = (id) => {
     dispatch(userActions.removeFromCart(id))
   }
+
+ 
+
  
   return (
     <div className={styles.main}>
@@ -31,7 +34,7 @@ export default function CartItems() {
         <p>No Items in Cart</p> : 
         cart.map(item => {
           return (
-              <div className={styles["main-item"]}>
+              <div key={item.id} className={styles["main-item"]}>
                 <div className={styles["main-item__image"]}>
                   <img src={item.image} alt=""></img>
                 </div>
@@ -40,12 +43,12 @@ export default function CartItems() {
                 </div>
                 <p>${item.price}</p>
                 <div className={styles.quantity}>
-                  <button>-</button>
+                  <button onClick={handleIncrement}>-</button>
                   <div><p>0</p></div>
-                  <button>+</button>
+                  <button onClick={() => handleIncrement(item)}>+</button>
                 </div>
                 <div className={styles.delete} onClick={() => handleDelete(item.id)}>
-                  <i class="far fa-trash-alt"></i>
+                  <i className="far fa-trash-alt"></i>
                 </div>
               </div>
           )

@@ -21,7 +21,7 @@ const MobileNav = (props) => {
         </ul>
       </nav>
       <div className={styles.close} onClick={()=>props.closeNav()}>
-        <i class="fas fa-times"></i>
+        <i className="fas fa-times"></i>
       </div>
     </div>
   )

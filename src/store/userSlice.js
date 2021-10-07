@@ -37,9 +37,16 @@ const userSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       state.cart = state.cart.filter(item => item.id !== action.payload)
+      localStorage.setItem("cart", JSON.stringify(state.cart))
     },
     reformatCart: (state, action) => {
       state.cart = action.payload
+    },
+    increaseQuantity: (state, action) => {
+      state.cart.find(cItem => cItem.id === action.payload).quantity++
+    },
+    decreaseQuantity: (state, action) => {
+      !(state.cart.find(cItem => cItem.id === action.payload).quantity <= 1) ? state.cart.find(cItem => cItem.id === action.payload).quantity-- : state.cart.find(cItem => cItem.id === action.payload).quantity = 1
     }
   }
 })

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { userActions } from '../../store/userSlice'
 
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/header/Header'
@@ -13,14 +14,26 @@ export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
 
   const params = useParams()
+  const cart = useSelector(state => state.users.cart)
   const product = useSelector(state => state.products.data.find(p => p.id === params.pId))
+  const dispatch = useDispatch()
+
+  const quant = cart.find(p => p?.id === product?.id)?.quantity
+
 
   const handleQuantityPlus = () => {
-    setQuantity(q => q + 1)
+    /* setQuantity(q => q + 1) */
+    dispatch(userActions.increaseQuantity(product.id))
   }
 
   const handleQuantityMinus = () => {
-    quantity <= 1 ? setQuantity(1) : setQuantity(q => q - 1)
+    /* quantity <= 1 ? setQuantity(1) : setQuantity(q => q - 1) */
+    dispatch(userActions.decreaseQuantity(product.id))
+  }
+
+  const handleAddToCart = e => {
+    e.preventDefault()
+    dispatch(userActions.addToCart({...product, quantity: 1})) 
   }
 
   return (
@@ -29,7 +42,7 @@ export default function ProductDetails() {
 
       <section className={`${styles.container} container`}>
         <div className={`${styles.subHeader}`}>
-          <i class="fas fa-home"></i>
+          <i className="fas fa-home"></i>
           <p>  {'>'} Details</p>
         </div>
         <div className={styles["product-main"]}>
@@ -43,11 +56,11 @@ export default function ProductDetails() {
               <p className={styles.desc}>{product?.description}</p>
               <div className={styles.cta}>
                 <div className={styles.quantity}>
-                  <button onClick={handleQuantityMinus}>-</button>
-                  <div><p>{quantity}</p></div>
+                  <button onClick={handleQuantityMinus}>-</button> 
+                  <div><p>{quant || 1}</p></div>
                   <button onClick={handleQuantityPlus}>+</button>
                 </div>
-                <button className={styles["add-cart"]}><i className="fas fa-shopping-bag"></i>Add to Cart</button>
+                <button onClick={handleAddToCart} className={styles["add-cart"]}><i className="fas fa-shopping-bag"></i>Add to Cart</button>
               </div>
               <div className={styles.wish}>
                 <i className="far fa-heart"></i><p>Add to Wishlist</p>
@@ -73,7 +86,7 @@ export default function ProductDetails() {
           <form className={styles["review-form"]}>
             <h5>Write a Customer Review</h5>
             <div className={styles["form-group"]}>
-              <label for="rating">Rating</label>
+              <label htmlFor="rating">Rating</label>
               <select id="rating">
                 <option value="1">1 - Poor</option>
                 <option value="2">2 - Fair</option>
@@ -83,7 +96,7 @@ export default function ProductDetails() {
               </select>
             </div>
             <div className={styles["form-group"]}>
-              <label for="comment">Comment</label>
+              <label htmlFor="comment">Comment</label>
               <textarea id="comment" rows="5"></textarea>
             </div>
             <button type="submit">SUBMIT</button>
