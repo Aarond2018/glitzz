@@ -24,7 +24,13 @@ export default function CartItems() {
     dispatch(userActions.removeFromCart(id))
   }
 
- 
+  const handleIncrement = id => {
+    dispatch(userActions.increaseQuantity(id))
+  }
+
+  const handleDecrement = id => {
+    dispatch(userActions.decreaseQuantity(id))
+  }
 
  
   return (
@@ -43,9 +49,9 @@ export default function CartItems() {
                 </div>
                 <p>${item.price}</p>
                 <div className={styles.quantity}>
-                  <button onClick={handleIncrement}>-</button>
-                  <div><p>0</p></div>
-                  <button onClick={() => handleIncrement(item)}>+</button>
+                  <button onClick={() => handleDecrement(item.id)}>-</button>
+                  <div><p>{item.quantity}</p></div>
+                  <button onClick={() => handleIncrement(item.id)}>+</button>
                 </div>
                 <div className={styles.delete} onClick={() => handleDelete(item.id)}>
                   <i className="far fa-trash-alt"></i>
