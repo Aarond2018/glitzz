@@ -14,8 +14,17 @@ export default function Header() {
 
   const isSignnedIn = useSelector(state => state.users.isSignnedIn)
   const cartItemNo = useSelector(state => state.users.cart?.length)
+  const cart = useSelector(state => state.users.cart)
   
   const dispatch = useDispatch()
+
+  let totalPrice;
+
+  if (cart) {
+    cart.length !== 0 ? totalPrice = cart.map(p => p.price * p.quantity).reduce((a, b) => a + b) : totalPrice = 0;
+  }
+
+  
   
   const handleScroll = () => {
     window.scrollY > 100 ? setDisplayHeader(true) : setDisplayHeader(false)
@@ -70,7 +79,7 @@ export default function Header() {
               </li>
               <li className={styles["li-shop"]}>
                 {/* <Link to="">Shopping Cart: <span>$0.00</span><i className="fas fa-shopping-bag"><div></div></i></Link> */}
-                <Link to="/cart"><div><p>Shopping Cart </p><span>$0.00</span></div><i className="fas fa-shopping-bag"><p>{cartItemNo}</p></i></Link>
+                <Link to="/cart"><div><p>Shopping Cart </p><span>${totalPrice}</span></div><i className="fas fa-shopping-bag"><p>{cartItemNo}</p></i></Link>
               </li>
             </ul>
         </div>

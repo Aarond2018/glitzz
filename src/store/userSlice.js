@@ -44,9 +44,11 @@ const userSlice = createSlice({
     },
     increaseQuantity: (state, action) => {
       state.cart.find(cItem => cItem.id === action.payload).quantity++
+      localStorage.setItem("cart", JSON.stringify(state.cart))
     },
     decreaseQuantity: (state, action) => {
       !(state.cart.find(cItem => cItem.id === action.payload).quantity <= 1) ? state.cart.find(cItem => cItem.id === action.payload).quantity-- : state.cart.find(cItem => cItem.id === action.payload).quantity = 1
+      localStorage.setItem("cart", JSON.stringify(state.cart))
     }
   }
 })
