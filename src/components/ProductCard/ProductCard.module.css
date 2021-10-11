@@ -111,6 +111,17 @@
   }
 }
 
+@media (max-width: 640px) {
+  .product-part1 > .icons {
+    opacity: 1;
+  }
+
+  .product-part1 > .button {
+    background: #26c;
+    opacity: 1;
+  }
+}
+
 @media (max-width: 480px) {
   .product {
     height: 12rem;

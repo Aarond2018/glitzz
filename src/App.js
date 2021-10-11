@@ -28,6 +28,8 @@ const Cart = React.lazy(()=>import('./pages/Cart/Home/Cart'))
 
 
 function App() {
+  const [loading, setLoading] = useState(false)
+
   const dispatch = useDispatch(); 
   
   //persist the redux data through the saved Cookie
@@ -42,12 +44,14 @@ function App() {
     
 
   useEffect(() => {
-    getProducts()
     const cart = JSON.parse(localStorage.getItem('cart'))
+    getProducts()
     dispatch(userActions.reformatCart(cart))
+   
   }, [])
 
   const getProducts = async () => {
+    setLoading(true)
     const arr = [];
 
     const querySnapshot = await getDocs(collection(db, "products"));
@@ -63,6 +67,7 @@ function App() {
     });
     
     dispatch(productActions.add(arr))
+    setLoading(false)
   }
 
  /*  const add = async (data) => {
@@ -89,7 +94,7 @@ function App() {
       <Switch>
         <Route exact path='/'>
           <Suspense fallback={<Loader />}>
-            <Home /> 
+            {!loading ? <Home /> : <Loader />} 
           </Suspense>
         </Route>
         <Route exact path='/contact-us'>
@@ -99,12 +104,12 @@ function App() {
         </Route>
         <Route exact path='/products'>
           <Suspense fallback={<Loader />}>
-            <Products />
+            {!loading ? <Products /> : <Loader />}
           </Suspense>
         </Route>
         <Route exact path='/product/:pId'>
           <Suspense fallback={<Loader />}>
-            <ProductDetails />
+            {!loading ? <ProductDetails /> : <Loader />}
           </Suspense>
         </Route>
         <Route exact path='/signin'>
@@ -119,7 +124,7 @@ function App() {
         </Route>
         <Route path='/cart'>
           <Suspense fallback={<Loader />}>
-            <Cart />
+            {!loading ? <Cart /> : <Loader />}
           </Suspense>
         </Route>
       </Switch>
