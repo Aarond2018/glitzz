@@ -9,7 +9,7 @@ export default function DiscountSection() {
         <h4>Extra <span><i className="far fa-star"></i>30% off<i className="far fa-star"></i></span></h4>
         <h1>Discount Sale</h1>
         <p>Free Shipping on orders over $99</p>
-        <a href="">Shop now</a>
+        <a href="./products">Shop now</a>
       </div>
     </div>
   )

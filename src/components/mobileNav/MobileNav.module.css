@@ -51,6 +51,11 @@
   right: 0;
   border-radius: 4px;
   background: #26c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
 }
 
 .nav > ul {

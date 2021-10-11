@@ -10,7 +10,7 @@ const MobileNav = (props) => {
       <nav className={styles.nav}>
         <div>
           <input type="text" placeholder="Search a Product"></input>
-          <div></div>
+          <div><i className="fas fa-search"></i></div>
         </div>
         <ul>
           <li><Link to="/">Home</Link></li>
