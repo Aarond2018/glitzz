@@ -41,9 +41,12 @@ function App() {
     }
   }
 
-    
-
   useEffect(() => {
+    if (!document.cookie.includes("userData")) {
+      const userData = {"uID":"","name":"","cart":[],"record":[],"email":""}
+      document.cookie = `userData=${JSON.stringify(userData)}`
+    }
+    
     const cart = JSON.parse(localStorage.getItem('cart'))
     getProducts()
     dispatch(userActions.reformatCart(cart))
