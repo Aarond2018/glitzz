@@ -16,6 +16,11 @@ import { productActions } from '../../store/productSlice'
 
 export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
+  const [formInputs, setFormInputs] = useState({
+    name: "",
+    rating: 1,
+    comment: ""
+  })
 
   const params = useParams()
   const cart = useSelector(state => state.users.cart)
@@ -44,16 +49,24 @@ export default function ProductDetails() {
     dispatch(userActions.addToCart({...product, quantity: 1})) 
   }
 
+  const onInputChange = e => {
+    console.log(e.target.id)
+    setFormInputs({...formInputs, [e.target.id]: e.target.value})
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
     const review = {
-      name: e.target.name.value,
-      rating: e.target.rating.value,
-      comment: e.target.comment.value,
+      ...formInputs,
       id: product.id
     }
     dispatch(productActions.addReview(review))
     updateFirebase(review)
+    setFormInputs({
+      name: "",
+      rating: 1,
+      comment: ""
+    })
   }
 
   const updateFirebase = async (item) => {
@@ -116,11 +129,11 @@ export default function ProductDetails() {
             <h5>Write a Customer Review</h5>
             <div className={styles["form-group"]}>
               <label htmlFor="name">Name</label>
-              <input id="name" type="text"></input>
+              <input id="name" type="text" onChange={onInputChange} value={formInputs.name}></input>
             </div>
             <div className={styles["form-group"]}>
               <label htmlFor="rating">Rating</label>
-              <select id="rating">
+              <select id="rating" onChange={onInputChange} value={formInputs.rating}>
                 <option value="1">1 - Poor</option>
                 <option value="2">2 - Fair</option>
                 <option value="3">3 - Good</option>
@@ -130,7 +143,7 @@ export default function ProductDetails() {
             </div>
             <div className={styles["form-group"]}>
               <label htmlFor="comment">Comment</label>
-              <textarea id="comment" rows="5"></textarea>
+              <textarea id="comment" rows="5" onChange={onInputChange} value={formInputs.comment}></textarea>
             </div>
             <button type="submit">SUBMIT</button>
           </form>
