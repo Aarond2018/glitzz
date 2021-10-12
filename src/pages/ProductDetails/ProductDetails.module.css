@@ -138,6 +138,8 @@
   }
 }
 
+
+
 .product-reviews h5 {
   color: #247dc1;
   margin: 1rem 0;
@@ -170,7 +172,8 @@
 }
 
 .review-form > .form-group select,
-.review-form > .form-group textarea {
+.review-form > .form-group textarea,
+.review-form > .form-group input {
   padding: 0.5rem 1rem;
   color: inherit;
   /* background: rgba(36, 125, 193,.08); */
@@ -180,6 +183,7 @@
 }
 
 .review-form > .form-group select:focus,
+.review-form > .form-group input:focus, 
 .review-form > .form-group textarea:focus {
   outline: none;
 }

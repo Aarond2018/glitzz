@@ -4,11 +4,15 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { userActions } from '../../store/userSlice'
 
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../Firebase/firebase"
+
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/header/Header'
 
 import styles from './ProductDetails.module.css'
 import image from '../../Assets/product.jpg'
+import { productActions } from '../../store/productSlice'
 
 export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
@@ -34,6 +38,25 @@ export default function ProductDetails() {
   const handleAddToCart = e => {
     e.preventDefault()
     dispatch(userActions.addToCart({...product, quantity: 1})) 
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const review = {
+      name: e.target.name.value,
+      rating: e.target.rating.value,
+      comment: e.target.comment.value,
+      id: product.id
+    }
+    dispatch(productActions.addReview(review))
+    updateFirebase(review)
+  }
+
+  const updateFirebase = async (item) => {
+    const itemRef = doc(db, "products", product.id);
+    await updateDoc(itemRef, {
+      reviews: [...product.reviews, item]
+    });
   }
 
   return (
@@ -72,19 +95,28 @@ export default function ProductDetails() {
         <div className={styles["product-reviews"]}>
           <h5>Reviews</h5>
           <div className={styles.reviews}>
-            <div className={styles.review}>
-              <p className={styles["review__name"]}>Jeevan</p>
-              <p>2021-09-09</p>
-              <p>Excellent product, I love it</p>
-            </div>
-            <div className={styles.review}>
-              <p className={styles["review__name"]}>Jeevan</p>
-              <p>2021-09-09</p>
-              <p>Excellent product, I love it</p>
-            </div>
+            {product.reviews.length < 1 ? <h6>No Reviews yet..</h6>
+            :
+            product.reviews.map(review => {
+              return (
+                <div className={styles.review}>
+                  <p className={styles["review__name"]}>{review.name}</p>
+                  <p>{new Date().toLocaleDateString()}</p>
+                  <p>{review.comment}</p>
+                </div>
+              )
+            })
+            }
+
+            
+            
           </div>
-          <form className={styles["review-form"]}>
+          <form onSubmit={handleSubmit} className={styles["review-form"]}>
             <h5>Write a Customer Review</h5>
+            <div className={styles["form-group"]}>
+              <label htmlFor="name">Name</label>
+              <input id="name" type="text"></input>
+            </div>
             <div className={styles["form-group"]}>
               <label htmlFor="rating">Rating</label>
               <select id="rating">

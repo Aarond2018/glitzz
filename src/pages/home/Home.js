@@ -31,6 +31,13 @@ export default function Home(props) {
     window.scrollTo(0, 0)
   }
 
+  useEffect(() => {
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+     
+    }
+  })
+
   return (
     <>
       <Header />

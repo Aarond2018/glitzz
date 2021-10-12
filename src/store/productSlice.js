@@ -13,6 +13,13 @@ const productSlice = createSlice({
     },
     delete: (state) => {
 
+    },
+    addReview: (state, action) => {
+      state.data.find(item => item.id === action.payload.id).reviews.push({
+        name: action.payload.name,
+        rating: action.payload.rating,
+        comment: action.payload.comment
+      })
     }
   }
 })
