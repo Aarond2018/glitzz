@@ -31,14 +31,14 @@ export default function ProductDetails() {
 
 
   const handleQuantityPlus = () => {
-    if (!cart.find(item => item.id === product.id) ) {
+    if (!cart?.find(item => item.id === product.id) ) {
       dispatch(userActions.addToCart({...product, quantity: 1})) 
     }
     dispatch(userActions.increaseQuantity(product.id))
   }
 
   const handleQuantityMinus = () => {
-    if (!cart.find(item => item.id === product.id) ) {
+    if (!cart?.find(item => item.id === product.id) ) {
       dispatch(userActions.addToCart({...product, quantity: 1})) 
     }
     dispatch(userActions.decreaseQuantity(product.id))

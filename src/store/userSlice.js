@@ -28,7 +28,7 @@ const userSlice = createSlice({
       state.isSignnedIn = false
     },
     addToCart: (state, action) => {
-      if (state.cart.some(obj=>obj.id === action.payload.id)){
+      if (state.cart?.some(obj=>obj.id === action.payload.id)){
         return
       }else{
         state.cart.push(action.payload)
