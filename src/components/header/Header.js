@@ -18,7 +18,7 @@ export default function Header() {
   
   const dispatch = useDispatch()
 
-  let totalPrice;
+  let totalPrice = 0;
 
   if (cart) {
     cart.length !== 0 ? totalPrice = cart.map(p => p.price * p.quantity).reduce((a, b) => a + b) : totalPrice = 0;

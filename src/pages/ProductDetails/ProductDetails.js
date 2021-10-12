@@ -27,7 +27,7 @@ export default function ProductDetails() {
   const product = useSelector(state => state.products.data.find(p => p.id === params.pId))
   const dispatch = useDispatch()
 
-  const quant = cart.find(p => p?.id === product?.id)?.quantity
+  const quant = cart?.find(p => p?.id === product?.id)?.quantity
 
 
   const handleQuantityPlus = () => {
