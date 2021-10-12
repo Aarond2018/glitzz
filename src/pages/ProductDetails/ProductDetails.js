@@ -26,12 +26,16 @@ export default function ProductDetails() {
 
 
   const handleQuantityPlus = () => {
-    /* setQuantity(q => q + 1) */
+    if (!cart.find(item => item.id === product.id) ) {
+      dispatch(userActions.addToCart({...product, quantity: 1})) 
+    }
     dispatch(userActions.increaseQuantity(product.id))
   }
 
   const handleQuantityMinus = () => {
-    /* quantity <= 1 ? setQuantity(1) : setQuantity(q => q - 1) */
+    if (!cart.find(item => item.id === product.id) ) {
+      dispatch(userActions.addToCart({...product, quantity: 1})) 
+    }
     dispatch(userActions.decreaseQuantity(product.id))
   }
 
@@ -95,21 +99,18 @@ export default function ProductDetails() {
         <div className={styles["product-reviews"]}>
           <h5>Reviews</h5>
           <div className={styles.reviews}>
-            {product.reviews.length < 1 ? <h6>No Reviews yet..</h6>
+            {product?.reviews.length < 1 ? <h6>No Reviews yet..</h6>
             :
-            product.reviews.map(review => {
+            product?.reviews.map(review => {
               return (
                 <div className={styles.review}>
                   <p className={styles["review__name"]}>{review.name}</p>
-                  <p>{new Date().toLocaleDateString()}</p>
+                  <p className={styles.date}>{new Date().toLocaleDateString()}</p>
                   <p>{review.comment}</p>
                 </div>
               )
             })
-            }
-
-            
-            
+            }           
           </div>
           <form onSubmit={handleSubmit} className={styles["review-form"]}>
             <h5>Write a Customer Review</h5>
