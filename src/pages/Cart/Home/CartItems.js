@@ -11,6 +11,7 @@ export default function CartItems() {
   const dispatch = useDispatch()
 
   const cart = useSelector(state => state.users.cart)
+  
   let totalPrice;
   
   //Get the total price of items in the cart

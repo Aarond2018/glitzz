@@ -47,7 +47,7 @@ function App() {
       document.cookie = `userData=${JSON.stringify(userData)}`
     }
     
-    const cart = JSON.parse(localStorage.getItem('cart'))
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
     getProducts()
     dispatch(userActions.reformatCart(cart))
    
