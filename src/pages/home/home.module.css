@@ -82,9 +82,10 @@
   margin: 1rem 0;
 }
 
-.category > div > p {
+.category > div > a {
   font-weight: 600;
   transition: all .1s;
+  text-decoration: none;
 }
 
 .category:hover > img {
@@ -93,7 +94,10 @@
 
 .category:hover > div {
   background: #26c;
-  color: #fff
+}
+
+.category:hover > div > a {
+  color: #fff;
 }
 
 @media (max-width: 760px) {

@@ -50,7 +50,6 @@ export default function ProductDetails() {
   }
 
   const onInputChange = e => {
-    console.log(e.target.id)
     setFormInputs({...formInputs, [e.target.id]: e.target.value})
   }
 

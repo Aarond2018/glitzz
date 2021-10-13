@@ -79,7 +79,7 @@ export default function Header() {
               </li>
               <li className={styles["li-shop"]}>
                 {/* <Link to="">Shopping Cart: <span>$0.00</span><i className="fas fa-shopping-bag"><div></div></i></Link> */}
-                <Link to="/cart"><div><p>Shopping Cart </p><span>${totalPrice}</span></div><i className="fas fa-shopping-bag"><p>{cartItemNo}</p></i></Link>
+                <Link to="/cart"><div><p>Shopping Cart </p><span>${totalPrice.toFixed(2)}</span></div><i className="fas fa-shopping-bag"><p>{cartItemNo}</p></i></Link>
               </li>
             </ul>
         </div>

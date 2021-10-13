@@ -9,9 +9,12 @@ import Carousel from '../../components/Carousel/Carousel'
 import ProductCard from '../../components/ProductCard/ProductCard'
 
 import styles from './home.module.css'
-import menImage from '../../Assets/men.jpg'
 import DiscountSection from '../../components/DisountSection/DiscountSection'
 import Footer from '../../components/Footer/Footer'
+import menImage from '../../Assets/men.jpg'
+import womenImage from '../../Assets/women.jpg'
+import electronicsImage from '../../Assets/electronics.jpg'
+import jeweleryImage from '../../Assets/jewelery.jpg'
 
 export default function Home(props) {
   const [scrollBar, setScrollBar] = useState(false)
@@ -73,25 +76,25 @@ export default function Home(props) {
           <div className={styles.category}>
             <img src={menImage} alt=""></img>
             <div>
-              <p>Men's Fashion</p>
+              <Link href="">Men's Clothing</Link>
             </div>
           </div>
           <div className={styles.category}>
-            <img src={menImage} alt=""></img>
+            <img src={womenImage} alt=""></img>
             <div>
-              <p>Men's Fashion</p>
+              <Link href="">Women's Clothing</Link>
             </div>
           </div>
           <div className={styles.category}>
-            <img src={menImage} alt=""></img>
+            <img src={electronicsImage} alt=""></img>
             <div>
-              <p>Men's Fashion</p>
+              <Link href="">Electronics</Link>
             </div>
           </div>
           <div className={styles.category}>
-            <img src={menImage} alt=""></img>
+            <img src={jeweleryImage} alt=""></img>
             <div>
-              <p>Men's Fashion</p>
+              <Link href="">Jewelery</Link>
             </div>
           </div>
         </div>

@@ -42,12 +42,15 @@ function App() {
   }
 
   useEffect(() => {
+    //on load, checks if there is a cookie data already, if not initializes the cookie data for not yet logged in users
     if (!document.cookie.includes("userData")) {
       const userData = {"uID":"","name":"","cart":[],"record":[],"email":""}
       document.cookie = `userData=${JSON.stringify(userData)}`
     }
     
+    //on refresh gets the cart from local storage or initializes it to be an empty array
     const cart = JSON.parse(localStorage.getItem('cart')) || []
+
     getProducts()
     dispatch(userActions.reformatCart(cart))
    
@@ -57,6 +60,7 @@ function App() {
     setLoading(true)
     const arr = [];
 
+    //Get the products from firebase and push into an array
     const querySnapshot = await getDocs(collection(db, "products"));
     querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
@@ -68,12 +72,14 @@ function App() {
     })
     
     });
-    
+    //send the gotten data to the redux store
     dispatch(productActions.add(arr))
+
     setLoading(false)
   }
 
- /*  const add = async (data) => {
+ /*  //send data to firebase
+    const add = async (data) => {
      await data.map(d => {
       try {
         const docRef = addDoc(collection(db, "products"), {
