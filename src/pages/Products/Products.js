@@ -38,6 +38,7 @@ export default function Products() {
         </div>
 
         <section className={styles.display}>
+          <div></div>
           <h1>Glitzz Shop</h1>
         </section>
 
