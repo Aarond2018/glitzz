@@ -111,7 +111,7 @@ function App() {
             <ContactPage />
           </Suspense>
         </Route>
-        <Route exact path='/products'>
+        <Route path='/products'>
           <Suspense fallback={<Loader />}>
             {!loading ? <Products /> : <Loader />}
           </Suspense>

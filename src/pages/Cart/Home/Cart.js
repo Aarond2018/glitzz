@@ -22,7 +22,7 @@ export default function Home() {
           <li><NavLink activeClassName={styles.active} to="/cart/complete">3. Order Complete</NavLink></li>
         </ul>
         <div>
-          <Switch>
+          
             <Route exact path="/cart">
               <CartItems />
             </Route>
@@ -32,7 +32,7 @@ export default function Home() {
             <Route exact path="/cart/complete">
               <p>Complete</p>
             </Route> 
-          </Switch>
+          
         </div>
 
       </section>
