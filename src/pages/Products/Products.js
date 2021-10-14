@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { useSelector } from 'react-redux'
 import { NavLink, Switch, Route, Redirect, useHistory } from 'react-router-dom'
@@ -11,6 +11,8 @@ import CategoryProducts from './CategoryProducts'
 import styles from './Products.module.css'
 
 export default function Products() {
+  const [selectValue, setSelectValue] = useState("")
+
   const history = useHistory()
 
   const products = useSelector(state => state.products.data)
@@ -19,7 +21,7 @@ export default function Products() {
   const men = "men's clothing"
 
   const handleSelectChange = e => {
-
+    setSelectValue(e.target.value)
     if (e.target.value === "All Products") {
       history.push("/products")
     } else {
@@ -42,7 +44,7 @@ export default function Products() {
           <h1>Glitzz Shop</h1>
         </section>
 
-        <select className={styles.select} onChange={handleSelectChange}>
+        <select className={styles.select} onChange={handleSelectChange} value={selectValue}>
           <option value="All Products">All Products</option>
           <option value="men's clothing">men's clothing</option>
           <option value="women's clothing">women's clothing</option>

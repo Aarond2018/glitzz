@@ -76,25 +76,25 @@ export default function Home(props) {
           <div className={styles.category}>
             <img src={menImage} alt=""></img>
             <div>
-              <Link href="">Men's Clothing</Link>
+              <Link to="/products/men's clothing">Men's Clothing</Link>
             </div>
           </div>
           <div className={styles.category}>
             <img src={womenImage} alt=""></img>
             <div>
-              <Link href="">Women's Clothing</Link>
+              <Link to="/products/women's clothing">Women's Clothing</Link>
             </div>
           </div>
           <div className={styles.category}>
             <img src={electronicsImage} alt=""></img>
             <div>
-              <Link href="">Electronics</Link>
+              <Link to="/products/electronics">Electronics</Link>
             </div>
           </div>
           <div className={styles.category}>
             <img src={jeweleryImage} alt=""></img>
             <div>
-              <Link href="">Jewelery</Link>
+              <Link to="/products/jewelery">Jewelery</Link>
             </div>
           </div>
         </div>
