@@ -51,6 +51,9 @@ export default function Header() {
   }
 
   const onSearchSubmit = () => {
+    if (searchValue.trim() === "") {
+      return 
+    }
     setSearchValue("")
     history.push(`/search?value=${searchValue}`)
   }

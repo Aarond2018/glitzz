@@ -12,9 +12,14 @@ export default function SearchPage() {
   const products = useSelector(state => state.products.data)
   
   const queryParams = new URLSearchParams(location.search)
+  let searchedProducts = []
 
-  const searchedProducts = products.filter(product => product.title.toLowerCase().includes(queryParams.get("value").toLowerCase()))
-
+  if(queryParams.get("value").trim() !== "") {
+    searchedProducts = products.filter(product => product.title.toLowerCase().includes(queryParams.get("value").toLowerCase()))
+  } else {
+    searchedProducts = []
+  }
+  
   return (
     <>
       <Header />
@@ -22,7 +27,7 @@ export default function SearchPage() {
       <div className={`${styles.container} container`}>
         <h4>Search result</h4>
         <div className={styles.products}>
-          {searchedProducts.length === 0 ? <h5>No Product matched your search...</h5> : 
+          {searchedProducts.length === 0 ? <h5>No Product(s) matched your search...</h5> : 
             searchedProducts.map(product => {
               return (
                 <ProductCard key={product.id} product={product}/>
