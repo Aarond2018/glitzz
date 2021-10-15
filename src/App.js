@@ -25,6 +25,7 @@ const SignIn = React.lazy(()=>import('./pages/SignIn/SignIn'))
 const SignUp = React.lazy(()=>import('./pages/SignUp/SignUp'))
 const Products = React.lazy(()=>import('./pages/Products/Products'))
 const Cart = React.lazy(()=>import('./pages/Cart/Home/Cart'))
+const SearchPage = React.lazy(()=>import('./pages/SearchPage/SearchPage'))
 
 
 function App() {
@@ -134,6 +135,11 @@ function App() {
         <Route path='/cart'>
           <Suspense fallback={<Loader />}>
             {!loading ? <Cart /> : <Loader />}
+          </Suspense>
+        </Route>
+        <Route path='/search'>
+          <Suspense fallback={<Loader />}>
+            {!loading ? <SearchPage /> : <Loader />}
           </Suspense>
         </Route>
       </Switch>

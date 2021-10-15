@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { userActions } from '../../store/userSlice'
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import MobileNav from '../mobileNav/MobileNav'
 
 import styles from './header.module.css'
@@ -11,12 +11,14 @@ import styles from './header.module.css'
 export default function Header() {
   const [displayHeader, setDisplayHeader] = useState(false)
   const [displayMobileNav, setDisplayMobileNav] = useState(false)
+  const [searchValue, setSearchValue] = useState("")
 
   const isSignnedIn = useSelector(state => state.users.isSignnedIn)
   const cartItemNo = useSelector(state => state.users.cart?.length)
   const cart = useSelector(state => state.users.cart)
   
   const dispatch = useDispatch()
+  const history = useHistory()
 
   let totalPrice = 0;
 
@@ -44,6 +46,15 @@ export default function Header() {
     dispatch(userActions.signOut())
   }
 
+  const onSearchInputChange = e => {
+    setSearchValue(e.target.value)
+  }
+
+  const onSearchSubmit = () => {
+    setSearchValue("")
+    history.push(`/search?value=${searchValue}`)
+  }
+
   return (
     <header>
       <MobileNav displayMobileNav={displayMobileNav} closeNav={closeMobileNav}/>
@@ -68,7 +79,7 @@ export default function Header() {
               <Link to="/">
                 <div className={styles.logo}><i className="fas fa-store-alt"></i><h3>Glitzz</h3></div>
               </Link>
-              <div className={styles.input}><input type="text"></input><i className="fas fa-search"></i></div>
+              <div className={styles.input}><input type="text" onChange={onSearchInputChange}></input><i className="fas fa-search" onClick={onSearchSubmit}></i></div>
             </div>
             <ul className={styles["main-part2"]}>
               <li>

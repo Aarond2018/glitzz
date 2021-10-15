@@ -37,7 +37,6 @@ export default function Home(props) {
   useEffect(() => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
-     
     }
   })
 

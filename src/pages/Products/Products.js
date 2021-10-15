@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { useSelector } from 'react-redux'
-import { NavLink, Switch, Route, Redirect, useHistory } from 'react-router-dom'
+import { NavLink, Route, useHistory } from 'react-router-dom'
 
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/header/Header'

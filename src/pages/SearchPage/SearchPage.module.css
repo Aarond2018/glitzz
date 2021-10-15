@@ -1,0 +1,39 @@
+.container > h4 {
+  font-size: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  min-height: 50vh;
+  position: relative;
+}
+
+.products > h5 {
+  font-size: 0.9rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%
+}
+ 
+
+
+@media (max-width: 760px) {
+  .products {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .products {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  } 
+}
