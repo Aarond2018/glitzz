@@ -114,10 +114,7 @@ export default function Header() {
           <ul className={styles["bottom-part1"]}>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/">Categories</Link>
-              <ul className={styles["hidden-list"]}>
-                {/* <li><Link to="/">Clothings</Link></li>  
-                <li><Link to="/">Clothings</Link></li>  
-                <li><Link to="/">Clothings</Link></li> */}  
+              <ul className={styles["hidden-list"]}>  
                 {categories && categories.map((category, index) => <li key={index}><Link to="/">{category}</Link></li>)}
               </ul>  
             </li>
