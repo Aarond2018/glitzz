@@ -9,13 +9,7 @@ import { db } from './Firebase/firebase'
 import { collection, addDoc, getDocs, doc } from "firebase/firestore";
 
 import './App.css';
-/* import Home from './pages/home/Home'
-import ContactPage from './pages/Contact/ContactPage';
-import ProductDetails from './pages/ProductDetails/ProductDetails';
-import SignUp from './pages/SignUp/SignUp';
-import SignIn from './pages/SignIn/SignIn';
-import Products from './pages/Products/Products';
-import Cart from './pages/Cart/Home/Cart' */
+
 import Loader from './components/Loader/Loader'
 
 const Home = React.lazy(() => import('./pages/home/Home'))
