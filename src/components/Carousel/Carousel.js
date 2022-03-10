@@ -18,14 +18,14 @@ export default function Carousel() {
           <div className="carousel-item1__content">
             <p>Buy 2 Get <span><i className="far fa-star"></i>1 free<i className="far fa-star"></i></span></p>
             <h1>Fashionable<br /><span>Collection</span></h1>
-            <a href="">Shop now</a>
+            <a href="/products">Shop now</a>
           </div>
         </div>
         <div className="carousel-item carousel-item2">
           <div className="carousel-item1__content">
             <h1>Enticing<br /><span>Discounts</span></h1>
             <p>Up to 50% off all order this Season</p>
-            <a href="">Shop now</a>
+            <a href="/products">Shop now</a>
           </div>
             
         </div>
@@ -33,7 +33,7 @@ export default function Carousel() {
           <div className="carousel-item1__content">
             <h1>Mega Super<br /><span>Flash Sales</span></h1>
             <p>Deals you don't want to miss..</p>
-            <a href="">Shop now</a>
+            <a href="/products">Shop now</a>
           </div>
           
         </div>
