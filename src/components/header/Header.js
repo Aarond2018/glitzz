@@ -15,7 +15,8 @@ export default function Header() {
   const isSignnedIn = useSelector(state => state.users.isSignnedIn)
   const cartItemNo = useSelector(state => state.users.cart?.length)
   const cart = useSelector(state => state.users.cart)
-  
+  const products = useSelector(state => state.products.data)
+
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -23,9 +24,19 @@ export default function Header() {
 
   if (cart) {
     cart.length !== 0 ? totalPrice = cart.map(p => p.price * p.quantity).reduce((a, b) => a + b) : totalPrice = 0;
+  }  
+
+  //function to get all categories from the products
+  const getCategories = products => {
+    const categories = []
+    products.forEach(product => {
+      if(categories.includes(product.category)) return;
+      categories.push(product.category)
+    });
+    return categories;
   }
 
-  
+  const categories = getCategories(products)
   
   const handleScroll = () => {
     window.scrollY > 100 ? setDisplayHeader(true) : setDisplayHeader(false)
@@ -104,9 +115,10 @@ export default function Header() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/">Categories</Link>
               <ul className={styles["hidden-list"]}>
+                {/* <li><Link to="/">Clothings</Link></li>  
                 <li><Link to="/">Clothings</Link></li>  
-                <li><Link to="/">Clothings</Link></li>  
-                <li><Link to="/">Clothings</Link></li>  
+                <li><Link to="/">Clothings</Link></li> */}  
+                {categories && categories.map((category, index) => <li key={index}><Link to="/">{category}</Link></li>)}
               </ul>  
             </li>
             <li><Link to="/contact-us">Contact Us </Link></li>
