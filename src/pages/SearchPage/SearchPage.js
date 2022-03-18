@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/header/Header'
 import ProductCard from '../../components/ProductCard/ProductCard'
+import ScrollToTop from '../../components/utility/ScrollToTop'
 
 import styles from "./SearchPage.module.css"
 
@@ -22,6 +23,7 @@ export default function SearchPage() {
   
   return (
     <>
+      <ScrollToTop />
       <Header />
       
       <div className={`${styles.container} container`}>

@@ -39,7 +39,7 @@ export default function Home(props) {
       behaviour: "smooth"
     })
   }
-
+  
   return (
     <>
       <Header />

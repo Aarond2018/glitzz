@@ -13,6 +13,7 @@ import Header from '../../components/header/Header'
 import styles from './ProductDetails.module.css'
 import image from '../../Assets/product.jpg'
 import { productActions } from '../../store/productSlice'
+import ScrollToTop from '../../components/utility/ScrollToTop';
 
 export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
@@ -77,6 +78,7 @@ export default function ProductDetails() {
 
   return (
     <>
+      <ScrollToTop />
       <Header />
 
       <section className={`${styles.container} container`}>

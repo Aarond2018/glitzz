@@ -6,6 +6,7 @@ import { NavLink, Route, useHistory } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/header/Header";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import ScrollToTop from "../../components/utility/ScrollToTop";
 import CategoryProducts from "./CategoryProducts";
 
 import styles from "./Products.module.css";
@@ -31,6 +32,7 @@ export default function Products() {
 
 	return (
 		<>
+			<ScrollToTop />
 			<Header />
 
 			<section className="container">
