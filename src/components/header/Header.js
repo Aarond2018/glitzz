@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { userActions } from '../../store/userSlice'
 
@@ -16,6 +16,17 @@ export default function Header() {
   const cartItemNo = useSelector(state => state.users.cart?.length)
   const cart = useSelector(state => state.users.cart)
   const products = useSelector(state => state.products.data)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      window.scrollY > 100 ? setDisplayHeader(true) : setDisplayHeader(false)
+    }
+  
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -38,11 +49,11 @@ export default function Header() {
 
   const categories = getCategories(products)
   
-  const handleScroll = () => {
+  /* const handleScroll = () => {
     window.scrollY > 100 ? setDisplayHeader(true) : setDisplayHeader(false)
   }
 
-  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('scroll', handleScroll) */
 
   const openMobileNav = () => {
     setDisplayMobileNav(true)

@@ -1,80 +1,113 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import { useSelector } from 'react-redux'
-import { NavLink, Route, useHistory } from 'react-router-dom'
+import { useSelector } from "react-redux";
+import { NavLink, Route, useHistory } from "react-router-dom";
 
-import Footer from '../../components/Footer/Footer'
-import Header from '../../components/header/Header'
-import ProductCard from '../../components/ProductCard/ProductCard'
-import CategoryProducts from './CategoryProducts'
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/header/Header";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import CategoryProducts from "./CategoryProducts";
 
-import styles from './Products.module.css'
+import styles from "./Products.module.css";
 
 export default function Products() {
-  const [selectValue, setSelectValue] = useState("")
+	const [selectValue, setSelectValue] = useState("");
 
-  const history = useHistory()
+	const history = useHistory();
 
-  const products = useSelector(state => state.products.data)
+	const products = useSelector((state) => state.products.data);
 
-  const women = "women's clothing"
-  const men = "men's clothing"
+	const women = "women's clothing";
+	const men = "men's clothing";
 
-  const handleSelectChange = e => {
-    setSelectValue(e.target.value)
-    if (e.target.value === "All Products") {
-      history.push("/products")
-    } else {
-      history.push(`/products/${e.target.value}`)
-    }
-  }
+	const handleSelectChange = (e) => {
+		setSelectValue(e.target.value);
+		if (e.target.value === "All Products") {
+			history.push("/products");
+		} else {
+			history.push(`/products/${e.target.value}`);
+		}
+	};
 
-  return (
-    <>
-      <Header />
+	return (
+		<>
+			<Header />
 
-      <section className="container">
-        <div className={`${styles.subHeader} container`}>
-          <i className="fas fa-home"></i> 
-          <p> {'>'} Products</p>
-        </div>
+			<section className="container">
+				<div className={`${styles.subHeader} container`}>
+					<i className="fas fa-home"></i>
+					<p> {">"} Products</p>
+				</div>
 
-        <section className={styles.display}>
-          <div></div>
-          <h1>Glitzz Shop</h1>
-        </section>
+				<section className={styles.display}>
+					<div></div>
+					<h1>Glitzz Shop</h1>
+				</section>
 
-        <select className={styles.select} onChange={handleSelectChange} value={selectValue}>
-          <option value="All Products">All Products</option>
-          <option value="men's clothing">men's clothing</option>
-          <option value="women's clothing">women's clothing</option>
-          <option value="electronics">electronics</option>
-          <option value="jewelery">jewelery</option>
-        </select>
+				<select
+					className={styles.select}
+					onChange={handleSelectChange}
+					value={selectValue}
+				>
+					<option value="All Products">All Products</option>
+					<option value="men's clothing">men's clothing</option>
+					<option value="women's clothing">women's clothing</option>
+					<option value="electronics">electronics</option>
+					<option value="jewelery">jewelery</option>
+				</select>
 
-        <div className={styles.main}>
-          <ul>
-            <li className={styles.allProducts}><NavLink to="/products">All Products</NavLink></li>
-            <li><NavLink to={`/products/${men}`} activeClassName={styles.activeLink}>Men's Clothing</NavLink></li>
-            <li><NavLink to={`/products/${women}`} activeClassName={styles.activeLink}>Women's Clothing</NavLink></li>
-            <li><NavLink to="/products/electronics" activeClassName={styles.activeLink}>Electronics</NavLink></li>
-            <li><NavLink to="/products/jewelery" activeClassName={styles.activeLink}>Jewelery</NavLink></li>
-          </ul>
-          <div className={styles.products}>
-            
-              <Route exact path="/products">
-                {products.map(product => {
-                  return <ProductCard key={product.id} product={product}/>
-                })}
-              </Route>
-              <Route exact path="/products/:cName">
-                <CategoryProducts />
-              </Route>
-          </div>
-        </div>
-      </section>
+				<div className={styles.main}>
+					<ul>
+						<li className={styles.allProducts}>
+							<NavLink to="/products">All Products</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to={`/products/${men}`}
+								activeClassName={styles.activeLink}
+							>
+								Men's Clothing
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to={`/products/${women}`}
+								activeClassName={styles.activeLink}
+							>
+								Women's Clothing
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to="/products/electronics"
+								activeClassName={styles.activeLink}
+							>
+								Electronics
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to="/products/jewelery"
+								activeClassName={styles.activeLink}
+							>
+								Jewelery
+							</NavLink>
+						</li>
+					</ul>
+					<div className={styles.products}>
+						<Route exact path="/products">
+							{products.map((product) => {
+								return <ProductCard key={product.id} product={product} />;
+							})}
+						</Route>
+						<Route exact path="/products/:cName">
+							<CategoryProducts />
+						</Route>
+					</div>
+				</div>
+			</section>
 
-      <Footer />
-    </>
-  )
+			<Footer />
+		</>
+	);
 }

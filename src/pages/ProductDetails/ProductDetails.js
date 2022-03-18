@@ -113,9 +113,9 @@ export default function ProductDetails() {
           <div className={styles.reviews}>
             {product?.reviews.length < 1 ? <h6>No Reviews yet..</h6>
             :
-            product?.reviews.map(review => {
+            product?.reviews.map((review, index) => {
               return (
-                <div className={styles.review}>
+                <div className={styles.review} key={index}>
                   <p className={styles["review__name"]}>{review.name}</p>
                   <p className={styles.date}>{new Date().toLocaleDateString()}</p>
                   <p>{review.comment}</p>

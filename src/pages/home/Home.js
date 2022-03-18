@@ -19,26 +19,26 @@ import jeweleryImage from '../../Assets/jewelery.jpg'
 export default function Home(props) {
   const [scrollBar, setScrollBar] = useState(false)
 
-  const reduxProducts = useSelector(state => state.products.data)
-
-  const products = reduxProducts.slice(0, 8)
-  
-
-  const handleScroll = () => {
-    window.scrollY > 100 ? setScrollBar(true) : setScrollBar(false)
-  }
-
-  window.addEventListener('scroll', handleScroll)
-
-  const handleScrollToTop = () => {
-    window.scrollTo(0, 0)
-  }
-
   useEffect(() => {
+    const handleScroll = () => {
+      window.scrollY > 100 ? setScrollBar(true) : setScrollBar(false)
+    }
+    window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  })
+  }, [])
+
+  const reduxProducts = useSelector(state => state.products.data)
+
+  const products = reduxProducts.slice(0, 8)
+
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth"
+    })
+  }
 
   return (
     <>
