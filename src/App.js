@@ -28,16 +28,19 @@ function App() {
 
 	const dispatch = useDispatch();
 
-	//persist the redux data through the saved Cookie
+	//persist the redux data through the saved Cookie 
 	if (document.cookie.includes("userData")) {
-		const d = document.cookie
+		const userCookieData = document.cookie
 			.split("; ")
 			.find((row) => row.startsWith("userData="))
 			.split("=")[1];
 
-		if (!JSON.parse(d).email === "") {
-			dispatch(userActions.signIn(JSON.parse(d)));
+		
+
+		if((userCookieData !== "undefined") && !(JSON.parse(userCookieData).email === "")) {
+			dispatch(userActions.signIn(JSON.parse(userCookieData)));
 		}
+
 	}
 
 	useEffect(() => {

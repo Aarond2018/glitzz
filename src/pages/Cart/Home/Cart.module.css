@@ -119,6 +119,7 @@
   height: 12rem;
   border: 1px solid rgba(0,0,0,.1);
   padding: 1rem;
+  height: auto;
 }
 
 .main-total > h4 {
@@ -148,6 +149,17 @@
   font-weight: 600;
   text-transform: uppercase;
   margin: 1rem 0;
+}
+
+.main-total > button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.main-total > p {
+  text-align: center;
+  font-style: italic;
+  color: #26c;
 }
 
 

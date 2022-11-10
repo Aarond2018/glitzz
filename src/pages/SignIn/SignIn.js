@@ -2,12 +2,12 @@ import React from 'react'
 
 import { userActions } from '../../store/userSlice'
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom'
-import app from '../../Firebase/firebase'
+// import app from '../../Firebase/firebase'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { db } from '../../Firebase/firebase'
-import { collection, addDoc, getDocs, doc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/header/Header'
@@ -35,8 +35,9 @@ export default function SignIn() {
     /* const d = document.cookie.split('; ').find(row => row.startsWith('userData='))
     .split('=')[1]; */
     
-    dispatch(userActions.signIn(userData)) 
-    history.push("/")
+    dispatch(userActions.signIn(userData))
+    // history.push("/")
+    history.goBack()
     }
     add()
   }
@@ -50,9 +51,9 @@ export default function SignIn() {
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+        // const token = credential.accessToken;
         // The signed-in user info.
-        const user = result.user;
+        // const user = result.user;
         
         firebaseSync(result.user)
       }).catch((error) => {

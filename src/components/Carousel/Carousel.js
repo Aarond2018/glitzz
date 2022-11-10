@@ -1,6 +1,5 @@
 import React from 'react'
-/* import SwiperCore, { Swiper, SwiperSlide, Pagination, Navigation } from 'swiper';
- */
+
 
 
 import styles from './carousel.css'

@@ -4,6 +4,7 @@ import { Route, Link, Switch, NavLink } from "react-router-dom";
 
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/header/Header";
+import ScrollToTop from "../../../components/utility/ScrollToTop";
 import Checkout from "../Checkout/Checkout";
 import OrderComplete from "../OrderComplete/OrderComplete";
 
@@ -13,16 +14,17 @@ import CartItems from "./CartItems";
 export default function Home() {
 	return (
 		<>
+			<ScrollToTop />
 			<Header />
 
 			<section className="container">
 				<ul className={styles.nav}>
 					<li>
 						<NavLink activeClassName={styles.active} to="/cart">
-							1. Shopping Cart
+							{/* 1. */} Shopping Cart
 						</NavLink>
 					</li>
-					<li>
+					{/* <li>
 						<NavLink activeClassName={styles.active} to="/cart/checkout">
 							2. Checkout
 						</NavLink>
@@ -31,7 +33,7 @@ export default function Home() {
 						<NavLink activeClassName={styles.active} to="/cart/complete">
 							3. Order Complete
 						</NavLink>
-					</li>
+					</li> */}
 				</ul>
         
 				<div>

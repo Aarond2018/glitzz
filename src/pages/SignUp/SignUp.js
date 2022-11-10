@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { userActions } from '../../store/userSlice'
 
-import { Link, Redirect, useHistory } from 'react-router-dom'
-import app from '../../Firebase/firebase'
+import { Link, useHistory } from 'react-router-dom'
+// import app from '../../Firebase/firebase'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { db } from '../../Firebase/firebase'
-import { collection, addDoc, getDocs, doc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/header/Header'

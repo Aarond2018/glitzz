@@ -11,12 +11,12 @@ import Footer from '../../components/Footer/Footer'
 import Header from '../../components/header/Header'
 
 import styles from './ProductDetails.module.css'
-import image from '../../Assets/product.jpg'
+// import image from '../../Assets/product.jpg'
 import { productActions } from '../../store/productSlice'
 import ScrollToTop from '../../components/utility/ScrollToTop';
 
 export default function ProductDetails() {
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
   const [formInputs, setFormInputs] = useState({
     name: "",
     rating: 1,

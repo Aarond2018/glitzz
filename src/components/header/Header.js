@@ -64,6 +64,7 @@ export default function Header() {
   }
  
   const handleSignOut = () => {
+    document.cookie = "userData= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
     dispatch(userActions.signOut())
   }
 

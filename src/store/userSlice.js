@@ -21,7 +21,7 @@ const userSlice = createSlice({
       state.uID = action.payload.uID
       state.name = action.payload.name
       state.email = action.payload.email
-      state.cart = action.payload.cart
+      state.cart = JSON.parse(localStorage.getItem("cart")) || action.payload.cart
       state.record = action.payload.record
     },
     signOut: (state) => {
