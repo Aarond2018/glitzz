@@ -29,7 +29,7 @@ export default function Footer() {
           
         </ul>
 
-        <p>Glitzz e-Commerce &copy; 2021. Made with &hearts; by dAMi</p>
+        <p>Glitzz e-Commerce &copy; {`${new Date().getFullYear()}`}. Made with &hearts; by dAMi</p>
       </div>
     </div>
   )
